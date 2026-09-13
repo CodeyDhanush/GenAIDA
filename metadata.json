@@ -1,0 +1,6 @@
+{
+  "name": "GenAI Data Analyst Assistant",
+  "description": "Upload your data, ask questions in natural language, build Power BI & Tableau style interactive dashboards, and get AI-powered insights with statistical analysis, anomaly detection, predictive modeling, and executive reports.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

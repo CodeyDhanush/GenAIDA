@@ -1,0 +1,121 @@
+Ticker,Company_Name,Sector,Market_Cap_B_USD,PE_Ratio,Beta_Risk,Dividend_Yield_Pct,Return_1Y_Pct,Volatility_30D_Pct,Debt_To_Equity_Ratio,ESG_Risk_Score
+AAPL,"AAPL Holdings Inc.",Communication,5,9.4,0.95,1.87,-21.9,14.1,0.75,20.3
+MSFT,"MSFT Holdings Inc.",Energy,5,19.1,0.88,3.03,-17.2,21.5,1.39,19.9
+GOOGL,"GOOGL Holdings Inc.",Healthcare,172.5,48.9,1.24,0,42.5,24.7,1.09,15.9
+AMZN,"AMZN Holdings Inc.",Consumer Cyclical,254.2,6,0.3,2.46,8.2,14.9,2.16,21.9
+NVDA,"NVDA Holdings Inc.",Healthcare,5,36.9,0.69,0,2.5,32.1,1.05,11.9
+JNJ,"JNJ Holdings Inc.",Consumer Cyclical,415.1,6,1.43,3.15,16.2,26.6,1.81,22.8
+PFE,"PFE Holdings Inc.",Healthcare,152.6,32.4,0.58,0.7,15.8,21.8,2.57,15.9
+UNH,"UNH Holdings Inc.",Energy,55.2,14.8,0.85,3.31,22.3,12.4,1.81,20
+JPM,"JPM Holdings Inc.",Energy,83.5,16.2,0.65,0.53,-22.6,12,0.52,26.2
+BAC,"BAC Holdings Inc.",Financial Services,206.4,29.7,0.5,1.46,-1.5,21.9,1.77,18.8
+XOM,"XOM Holdings Inc.",Technology,105.9,26.9,0.83,0,-5.8,27,1.98,14.9
+CVX,"CVX Holdings Inc.",Healthcare,47.5,6,0.99,2.86,29.9,8,1.97,17.4
+TSLA,"TSLA Holdings Inc.",Financial Services,380.7,20.8,0.5,0.73,-16.4,25.9,1.36,21.6
+HD,"HD Holdings Inc.",Healthcare,49.8,29.1,1.64,4.25,16.3,18.4,1.67,24.9
+CAT,"CAT Holdings Inc.",Industrials,5,45.6,0.68,0.97,12,27.2,1.98,21.9
+DIS,"DIS Holdings Inc.",Communication,615.7,30,1.34,0.7,3.4,13.7,0.64,23
+NFLX,"NFLX Holdings Inc.",Financial Services,104.9,48.6,0.33,2.07,23.5,10.7,1.44,15.1
+AMD,"AMD Holdings Inc.",Healthcare,166.8,45.4,0.68,1.08,37.5,20.8,1.1,24.4
+ABBV,"ABBV Holdings Inc.",Healthcare,9.2,42.9,1.37,4.53,38.3,19,1.8,25.8
+COST,"COST Holdings Inc.",Healthcare,78.8,16.4,0.3,2.46,10,24,1.18,23.6
+CRM,"CRM Holdings Inc.",Consumer Cyclical,5,25.1,1.21,3.23,23.3,27,2.71,11.8
+ORCL,"ORCL Holdings Inc.",Financial Services,60.4,52.9,0.81,3.72,29.3,31.1,2.64,23.1
+CSCO,"CSCO Holdings Inc.",Industrials,131.4,16,1.48,1.93,53,13.9,2.18,20.5
+PEP,"PEP Holdings Inc.",Technology,236.2,25.8,0.48,3.2,17.2,30.9,0.53,21
+KO,"KO Holdings Inc.",Communication,245.9,23.5,1.77,0,14.8,34,0.53,17.4
+WMT,"WMT Holdings Inc.",Healthcare,107.5,57.4,0.36,3.07,18.7,31.2,0.9,25.4
+MCD,"MCD Holdings Inc.",Healthcare,16.6,20.2,1.03,0.72,-2.3,23.2,2.32,16.9
+NKE,"NKE Holdings Inc.",Industrials,5,48.8,1,2.22,30.4,36.7,1,29.2
+IBM,"IBM Holdings Inc.",Industrials,94.4,37.2,1.38,3.13,-36.3,23.4,0.72,23.9
+TXN,"TXN Holdings Inc.",Financial Services,5,7.2,1.03,0.77,21.4,25.7,0.92,10.7
+QCOM,"QCOM Holdings Inc.",Industrials,17.3,24.4,1.15,0,1.3,32.4,1.6,18.6
+INTC,"INTC Holdings Inc.",Financial Services,239.5,18.9,1.55,1.5,37.3,27.6,1.26,18.2
+BMY,"BMY Holdings Inc.",Consumer Cyclical,5,26.3,0.91,4.02,7.7,29.7,1.16,22.1
+LLY,"LLY Holdings Inc.",Technology,5,49.7,1.02,1.23,1.7,21.6,1.71,24.2
+MRK,"MRK Holdings Inc.",Financial Services,123.3,16.3,1.01,0.91,-3.6,10.3,0.63,15.9
+WFC,"WFC Holdings Inc.",Energy,5,27.9,1.48,1.43,0.1,28.8,2.69,25.1
+C,"C Holdings Inc.",Healthcare,359.6,39.7,0.85,3.37,3.9,33.1,1,24.4
+GS,"GS Holdings Inc.",Healthcare,380.3,33.8,1.12,1.6,46.4,12.4,1,8.8
+MS,"MS Holdings Inc.",Healthcare,284.5,45.4,0.42,1.09,23.9,8,0.41,8.3
+COP,"COP Holdings Inc.",Energy,134.9,42.8,1.11,0.2,-23.6,12.3,1.49,18
+SLB,"SLB Holdings Inc.",Financial Services,243.7,34.1,1.06,0,10.1,12,1.22,13.9
+EOG,"EOG Holdings Inc.",Consumer Cyclical,5,48.7,1.16,2.15,40.7,18.3,0.44,21.9
+F,"F Holdings Inc.",Financial Services,54.8,40,1.19,2.5,58.5,8,1.26,15.9
+GM,"GM Holdings Inc.",Energy,192.8,11.3,0.9,0,9.5,28.3,1.77,14.4
+GE,"GE Holdings Inc.",Technology,5,28.9,0.95,0,24.7,26.5,1.57,33.8
+BA,"BA Holdings Inc.",Communication,5,14.4,1.17,1.11,20.6,41.5,1.14,25.3
+HON,"HON Holdings Inc.",Communication,183.7,28.2,0.97,0.53,46.4,35.5,0.74,13
+UPS,"UPS Holdings Inc.",Industrials,465.3,10.7,1.94,3.3,19.3,19.6,1.03,14.6
+CMCSA,"CMCSA Holdings Inc.",Industrials,333.5,43.7,1.59,0.85,15.4,15.6,1.21,29.2
+VZ,"VZ Holdings Inc.",Healthcare,141.6,18.9,1.17,0.22,-50.9,18.2,1.53,15.2
+ASSET_51,"ASSET_51 Holdings Inc.",Healthcare,5,8.6,0.74,0,31.9,17.7,1.79,23.5
+ASSET_52,"ASSET_52 Holdings Inc.",Healthcare,5,30.6,1.14,0,12.8,26,0.47,28.6
+ASSET_53,"ASSET_53 Holdings Inc.",Industrials,277.8,20.2,1.06,2.4,25.8,38.5,1.68,20.4
+ASSET_54,"ASSET_54 Holdings Inc.",Industrials,135.9,16.2,1.32,0.67,32.6,23.2,0.1,14.4
+ASSET_55,"ASSET_55 Holdings Inc.",Communication,671.9,23.9,1.32,2.57,-0.1,27,0.88,25.8
+ASSET_56,"ASSET_56 Holdings Inc.",Healthcare,200,38,1.53,1.78,17.5,10.6,1.63,9.4
+ASSET_57,"ASSET_57 Holdings Inc.",Consumer Cyclical,280.5,10.3,1.04,2.22,17.6,22,1.33,21.2
+ASSET_58,"ASSET_58 Holdings Inc.",Consumer Cyclical,565.4,40.9,1.32,2.59,13.2,21.1,0.34,21.1
+ASSET_59,"ASSET_59 Holdings Inc.",Technology,166.8,47.4,1.71,1.08,32.3,12.3,0.34,22.3
+ASSET_60,"ASSET_60 Holdings Inc.",Financial Services,59.6,37.7,1.37,2.35,26,11.4,1.16,17.1
+ASSET_61,"ASSET_61 Holdings Inc.",Healthcare,139.4,44.1,0.89,1.44,10.1,26.6,0.39,18
+ASSET_62,"ASSET_62 Holdings Inc.",Energy,276.4,13.7,0.96,4.94,13,21.7,2.91,26.3
+ASSET_63,"ASSET_63 Holdings Inc.",Consumer Cyclical,340.8,33.4,0.75,0.58,26.4,18.5,1.93,15
+ASSET_64,"ASSET_64 Holdings Inc.",Technology,5,28.4,1.04,1.2,15,18.3,1.61,21.8
+ASSET_65,"ASSET_65 Holdings Inc.",Communication,424.4,18.8,0.48,3.42,4.4,14.1,1.85,25.7
+ASSET_66,"ASSET_66 Holdings Inc.",Consumer Cyclical,143.3,9.8,1.31,0.74,-43.2,15.9,0.48,18
+ASSET_67,"ASSET_67 Holdings Inc.",Financial Services,282.1,37.2,0.75,4.25,33,22.4,1.23,22.9
+ASSET_68,"ASSET_68 Holdings Inc.",Healthcare,355.3,25,1.04,3.74,4.1,30.4,1.7,28.6
+ASSET_69,"ASSET_69 Holdings Inc.",Energy,5,17.8,1.89,1.32,30.6,30.2,0.13,24.8
+ASSET_70,"ASSET_70 Holdings Inc.",Healthcare,247.1,49.2,1.3,4.02,34.2,23.9,0.52,16.6
+ASSET_71,"ASSET_71 Holdings Inc.",Healthcare,137.7,35.2,0.3,2.93,7.9,30,1.38,28.1
+ASSET_72,"ASSET_72 Holdings Inc.",Communication,172.9,10.3,1.34,4.04,-13.7,17.2,1.53,8.2
+ASSET_73,"ASSET_73 Holdings Inc.",Communication,27.7,17.6,1.29,4.17,7.6,24.5,1.01,22.6
+ASSET_74,"ASSET_74 Holdings Inc.",Financial Services,116.6,21,1.03,1.8,31.3,33.6,2.42,28.2
+ASSET_75,"ASSET_75 Holdings Inc.",Communication,173.4,27.7,1.42,2.6,47.1,24.6,0.1,21.6
+ASSET_76,"ASSET_76 Holdings Inc.",Energy,212.3,30,0.93,4.02,23.6,23.9,0.19,29
+ASSET_77,"ASSET_77 Holdings Inc.",Financial Services,168.5,8,1.14,2.88,-23.9,17.7,1.07,18.9
+ASSET_78,"ASSET_78 Holdings Inc.",Consumer Cyclical,355.6,21.5,0.5,1.78,53.9,18.4,1.5,27.3
+ASSET_79,"ASSET_79 Holdings Inc.",Consumer Cyclical,76.7,34.8,0.86,2.01,12.6,23.9,1,27.8
+ASSET_80,"ASSET_80 Holdings Inc.",Financial Services,95.8,42.9,0.73,0.62,-8.5,18.1,1.19,26.9
+ASSET_81,"ASSET_81 Holdings Inc.",Financial Services,351.1,52.5,1.1,2.38,34.8,26.6,0.57,19.5
+ASSET_82,"ASSET_82 Holdings Inc.",Healthcare,296.4,35.1,0.99,0.53,7.3,22.6,1.36,34.5
+ASSET_83,"ASSET_83 Holdings Inc.",Financial Services,121.7,49.7,1.32,0.5,11.1,20,1.36,25.7
+ASSET_84,"ASSET_84 Holdings Inc.",Consumer Cyclical,372.9,26.9,0.87,2.39,-12.2,41.5,1.84,23.7
+ASSET_85,"ASSET_85 Holdings Inc.",Communication,55.4,56.4,0.85,4.02,-9,31.6,0.1,14.9
+ASSET_86,"ASSET_86 Holdings Inc.",Healthcare,179.6,13.9,0.89,1.71,-11.1,15.7,1.35,21
+ASSET_87,"ASSET_87 Holdings Inc.",Financial Services,5,25,0.8,2.91,12.2,17.5,1.66,14.9
+ASSET_88,"ASSET_88 Holdings Inc.",Financial Services,133.7,7.5,0.3,0.91,23.5,34.7,2.14,18.5
+ASSET_89,"ASSET_89 Holdings Inc.",Energy,315.3,39.7,0.89,3.11,27.9,21,0.85,32.3
+ASSET_90,"ASSET_90 Holdings Inc.",Communication,169.3,35.8,1.12,1.52,11.8,14.5,0.84,20
+ASSET_91,"ASSET_91 Holdings Inc.",Consumer Cyclical,9.9,38.3,1.39,2.24,31.6,23.3,1.07,33.5
+ASSET_92,"ASSET_92 Holdings Inc.",Technology,5,28.2,0.41,2.52,52,8,1.09,19.2
+ASSET_93,"ASSET_93 Holdings Inc.",Consumer Cyclical,91,33.2,1.06,1.05,-0.3,19.4,2.06,23.3
+ASSET_94,"ASSET_94 Holdings Inc.",Energy,67.7,23.3,1.09,0,26.6,10.9,1.35,13.8
+ASSET_95,"ASSET_95 Holdings Inc.",Communication,5,28.7,1.25,0,48.9,29.8,1.77,21.8
+ASSET_96,"ASSET_96 Holdings Inc.",Consumer Cyclical,316.9,59.3,1.73,2.69,-25.6,21.8,1,24.7
+ASSET_97,"ASSET_97 Holdings Inc.",Healthcare,144,36.9,1.04,3.97,8.6,27.5,1.95,29.7
+ASSET_98,"ASSET_98 Holdings Inc.",Healthcare,64,6,1.04,0,33.3,25.4,0.39,15.3
+ASSET_99,"ASSET_99 Holdings Inc.",Consumer Cyclical,226.7,67,1.22,0.11,-5.9,15.5,2.04,9.9
+ASSET_100,"ASSET_100 Holdings Inc.",Communication,115.6,39.1,1.26,0.63,-0.8,34.2,1.86,20.3
+ASSET_101,"ASSET_101 Holdings Inc.",Communication,609.8,6.5,1.51,0.32,20.1,30.5,1.66,20
+ASSET_102,"ASSET_102 Holdings Inc.",Energy,254.2,43.7,1.71,1.7,6,13.3,1.87,17.8
+ASSET_103,"ASSET_103 Holdings Inc.",Healthcare,298,30.7,0.39,1.38,26.5,21.1,2.01,19.4
+ASSET_104,"ASSET_104 Holdings Inc.",Communication,74.5,25.2,0.53,0.95,20.5,23.6,0.58,22.3
+ASSET_105,"ASSET_105 Holdings Inc.",Energy,250.3,7.5,0.44,0,26.8,32.3,1.87,12.1
+ASSET_106,"ASSET_106 Holdings Inc.",Healthcare,5,42.3,0.72,1.53,28.7,39.3,1.27,28.9
+ASSET_107,"ASSET_107 Holdings Inc.",Technology,114.8,41.2,1.15,0,4.9,24.8,1.2,25.7
+ASSET_108,"ASSET_108 Holdings Inc.",Energy,5,35.1,0.91,3.04,6.9,36.9,0.46,16.9
+ASSET_109,"ASSET_109 Holdings Inc.",Financial Services,46,25,0.9,0.66,12.8,25.1,0.91,26.8
+ASSET_110,"ASSET_110 Holdings Inc.",Communication,187.9,33.3,1.08,4.89,27.2,17.9,0.51,11
+ASSET_111,"ASSET_111 Holdings Inc.",Communication,256,50,1.28,4.44,-26.3,9.1,1.83,16
+ASSET_112,"ASSET_112 Holdings Inc.",Financial Services,221,23.5,0.94,3.87,-3.1,16.2,0.24,23.6
+ASSET_113,"ASSET_113 Holdings Inc.",Communication,280.3,35,1.06,2.66,-4.9,21.2,0.57,17.1
+ASSET_114,"ASSET_114 Holdings Inc.",Energy,179.1,6,1.37,3.3,-26.3,17.9,1.52,28.7
+ASSET_115,"ASSET_115 Holdings Inc.",Consumer Cyclical,140.6,12.7,0.5,1.42,11.6,25.4,1.16,10.4
+ASSET_116,"ASSET_116 Holdings Inc.",Healthcare,259.9,32.4,0.55,2.13,20.9,11.9,1.62,16.8
+ASSET_117,"ASSET_117 Holdings Inc.",Energy,394.7,26.1,1.57,0.73,24.9,8,1.43,21.4
+ASSET_118,"ASSET_118 Holdings Inc.",Healthcare,5,54,0.71,2.26,45.1,27.2,2.16,16.2
+ASSET_119,"ASSET_119 Holdings Inc.",Technology,5,31.5,2.07,1.36,23,33.5,2.52,15.8
+ASSET_120,"ASSET_120 Holdings Inc.",Energy,191.5,59.1,1.65,3.42,26.1,18.9,2.24,16.6

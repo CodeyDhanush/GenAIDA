@@ -1,0 +1,151 @@
+Patient_ID,Age,Gender,BMI,Systolic_BP,Diastolic_BP,Cholesterol_mg_dL,Fasting_Glucose_mg_dL,Treatment_Group,Smoker_Status,Hospital_Days,Readmitted_30D,Health_Recovery_Score
+PAT-0001,77,Female,28.4,152,77,216,127,Placebo Standard,Active Smoker,7,No,56.7
+PAT-0002,53,Female,18.5,154,66,216,93,Active Drug A,Former Smoker,1,No,98
+PAT-0003,60,Female,26.1,116,91,198,106,Placebo Standard,Non-Smoker,7,Yes,77.9
+PAT-0004,61,Female,27.8,122,75,186,101,Placebo Standard,Active Smoker,7,No,69.6
+PAT-0005,57,Male,30,115,75,251,108,Placebo Standard,Non-Smoker,6,No,69.9
+PAT-0006,49,Male,25.8,121,91,162,89,Active Drug A,Former Smoker,7,No,88.1
+PAT-0007,62,Female,25.3,139,86,238,89,Active Drug B,Non-Smoker,5,No,80.7
+PAT-0008,45,Female,19.3,159,60,175,98,Active Drug B,Non-Smoker,4,No,84.1
+PAT-0009,53,Male,31.6,160,75,232,70,Active Drug A,Non-Smoker,7,No,78.6
+PAT-0010,33,Female,29.3,118,103,189,77,Active Drug B,Non-Smoker,8,No,83.5
+PAT-0011,72,Female,26.6,140,91,257,116,Placebo Standard,Active Smoker,10,No,55.1
+PAT-0012,66,Female,22.5,108,90,156,122,Placebo Standard,Non-Smoker,10,Yes,65.7
+PAT-0013,34,Female,21.9,98,92,203,91,Active Drug A,Active Smoker,5,Yes,65.7
+PAT-0014,68,Female,24.2,109,73,183,141,Active Drug B,Active Smoker,9,No,76.6
+PAT-0015,70,Male,28.9,123,75,180,114,Placebo Standard,Former Smoker,5,No,64.4
+PAT-0016,61,Male,33.7,103,87,177,74,Active Drug B,Former Smoker,1,No,86
+PAT-0017,54,Female,28.6,133,81,219,106,Active Drug B,Active Smoker,4,No,86.9
+PAT-0018,70,Female,27.4,158,95,193,92,Active Drug B,Non-Smoker,7,No,83.9
+PAT-0019,53,Female,27.4,121,83,172,113,Placebo Standard,Non-Smoker,4,No,69.7
+PAT-0020,50,Female,27.7,112,86,238,103,Placebo Standard,Former Smoker,6,No,80.6
+PAT-0021,72,Male,23.4,117,80,196,160,Active Drug A,Non-Smoker,5,Yes,87.1
+PAT-0022,52,Female,30.7,118,60,235,109,Active Drug A,Active Smoker,1,No,73.3
+PAT-0023,77,Male,34.8,107,76,212,74,Placebo Standard,Active Smoker,14,Yes,53.3
+PAT-0024,51,Male,26.4,126,88,184,137,Active Drug A,Active Smoker,8,No,72
+PAT-0025,44,Female,33.5,95,91,281,129,Placebo Standard,Former Smoker,3,No,74.3
+PAT-0026,66,Female,27.5,123,79,284,154,Active Drug B,Active Smoker,4,No,84.5
+PAT-0027,33,Female,27.2,126,78,167,133,Active Drug B,Former Smoker,5,No,78.2
+PAT-0028,81,Male,25.4,101,75,161,76,Active Drug A,Non-Smoker,7,No,79.2
+PAT-0029,55,Male,30.3,106,78,287,167,Active Drug B,Former Smoker,9,No,74.8
+PAT-0030,67,Male,27.1,135,68,230,100,Placebo Standard,Non-Smoker,3,No,71.5
+PAT-0031,55,Female,25.5,140,99,214,114,Placebo Standard,Former Smoker,4,No,72.9
+PAT-0032,52,Female,23.6,126,60,212,143,Active Drug A,Active Smoker,6,No,69.4
+PAT-0033,45,Male,22.2,137,75,173,108,Placebo Standard,Former Smoker,4,Yes,74.3
+PAT-0034,58,Female,31.6,134,76,171,117,Active Drug A,Active Smoker,5,No,78.1
+PAT-0035,35,Male,31.7,165,73,225,81,Placebo Standard,Non-Smoker,5,No,63.3
+PAT-0036,56,Male,24.8,141,83,251,121,Placebo Standard,Former Smoker,8,No,68
+PAT-0037,57,Female,33.5,121,68,239,129,Active Drug A,Non-Smoker,3,No,73.6
+PAT-0038,65,Male,21.8,126,82,205,72,Active Drug A,Active Smoker,1,Yes,70.3
+PAT-0039,46,Male,26.8,160,88,251,118,Active Drug B,Non-Smoker,5,No,86.2
+PAT-0040,53,Male,27.5,110,79,165,87,Active Drug A,Active Smoker,9,No,71.1
+PAT-0041,52,Male,31.4,141,80,219,91,Placebo Standard,Former Smoker,5,No,68.8
+PAT-0042,69,Female,28.3,114,84,230,70,Active Drug A,Non-Smoker,7,Yes,97.3
+PAT-0043,60,Female,26.3,141,91,130,99,Active Drug B,Former Smoker,5,No,83.3
+PAT-0044,49,Male,30.1,133,84,216,118,Active Drug B,Former Smoker,4,No,82.3
+PAT-0045,44,Female,24.6,124,89,246,117,Active Drug B,Former Smoker,8,No,85.7
+PAT-0046,60,Male,39,135,92,238,94,Active Drug B,Active Smoker,3,No,80.8
+PAT-0047,69,Male,23.3,125,86,274,152,Placebo Standard,Former Smoker,9,No,74.8
+PAT-0048,50,Male,37.7,98,94,182,142,Active Drug A,Active Smoker,4,No,83.6
+PAT-0049,69,Female,22.6,113,96,218,96,Active Drug A,Active Smoker,12,Yes,80
+PAT-0050,29,Female,32.6,124,85,196,115,Placebo Standard,Former Smoker,5,No,77.9
+PAT-0051,50,Male,24.9,105,67,147,86,Active Drug B,Non-Smoker,1,No,96.2
+PAT-0052,34,Male,21.5,115,69,198,133,Active Drug B,Active Smoker,7,No,72
+PAT-0053,56,Male,26.7,123,70,290,92,Active Drug B,Active Smoker,2,No,83.1
+PAT-0054,50,Female,23.2,113,79,134,119,Placebo Standard,Former Smoker,7,No,73.9
+PAT-0055,41,Male,21.1,141,85,203,74,Placebo Standard,Former Smoker,2,No,60.3
+PAT-0056,29,Female,32.7,136,95,230,174,Placebo Standard,Active Smoker,8,Yes,53
+PAT-0057,52,Male,25.2,113,99,203,70,Active Drug B,Non-Smoker,8,No,88.2
+PAT-0058,34,Female,28.6,146,75,174,76,Placebo Standard,Active Smoker,7,No,70.3
+PAT-0059,56,Male,18.5,105,60,182,104,Placebo Standard,Former Smoker,11,No,69.3
+PAT-0060,57,Male,22.6,119,94,215,75,Active Drug B,Active Smoker,9,No,83.3
+PAT-0061,59,Male,20.3,106,60,205,131,Active Drug B,Non-Smoker,2,No,77
+PAT-0062,68,Male,27.7,111,76,182,110,Placebo Standard,Non-Smoker,12,No,65.7
+PAT-0063,67,Female,30.9,130,78,209,107,Placebo Standard,Non-Smoker,7,No,69.6
+PAT-0064,59,Female,33.1,141,89,230,98,Active Drug B,Former Smoker,6,No,78
+PAT-0065,49,Female,28.8,132,82,172,113,Active Drug A,Former Smoker,4,Yes,94.9
+PAT-0066,48,Male,29.5,101,78,216,143,Active Drug A,Former Smoker,6,No,84.6
+PAT-0067,63,Female,32.2,148,89,130,90,Active Drug B,Non-Smoker,4,No,76.7
+PAT-0068,54,Female,25.3,119,88,184,99,Active Drug A,Active Smoker,2,No,86.7
+PAT-0069,74,Male,26.8,125,80,218,111,Active Drug B,Non-Smoker,2,No,73.2
+PAT-0070,49,Female,29.4,122,96,227,99,Active Drug B,Former Smoker,2,No,94.5
+PAT-0071,36,Female,33,137,97,260,100,Active Drug B,Active Smoker,6,No,62.1
+PAT-0072,30,Male,30.1,118,108,200,109,Active Drug A,Active Smoker,6,Yes,81.9
+PAT-0073,65,Female,30.3,119,77,196,103,Active Drug B,Former Smoker,11,No,78.8
+PAT-0074,42,Female,18.5,112,85,244,103,Placebo Standard,Active Smoker,7,Yes,56.4
+PAT-0075,62,Male,26,137,87,178,89,Placebo Standard,Active Smoker,7,No,61.2
+PAT-0076,43,Male,27.4,156,87,283,74,Active Drug B,Non-Smoker,6,No,79.1
+PAT-0077,52,Male,32.2,136,97,190,70,Active Drug A,Non-Smoker,6,No,70.2
+PAT-0078,46,Female,31,114,69,209,122,Active Drug A,Active Smoker,7,No,68.8
+PAT-0079,62,Male,22.9,142,75,218,117,Active Drug A,Former Smoker,6,No,87.7
+PAT-0080,65,Female,27.5,142,91,199,137,Active Drug A,Non-Smoker,4,No,86.5
+PAT-0081,57,Male,28.5,132,90,211,98,Placebo Standard,Former Smoker,10,Yes,72.2
+PAT-0082,54,Male,31,128,89,228,138,Active Drug A,Non-Smoker,1,No,75.4
+PAT-0083,61,Male,25.7,109,92,270,115,Placebo Standard,Active Smoker,8,No,59.9
+PAT-0084,45,Male,28.3,108,75,237,97,Active Drug A,Former Smoker,6,No,85.9
+PAT-0085,71,Female,24.7,126,76,284,98,Active Drug A,Active Smoker,3,No,88
+PAT-0086,64,Male,29.6,131,83,210,117,Placebo Standard,Former Smoker,8,Yes,79.4
+PAT-0087,69,Female,31,105,87,197,137,Active Drug B,Non-Smoker,7,No,77.5
+PAT-0088,85,Male,27.4,131,76,173,109,Active Drug B,Former Smoker,5,No,83.4
+PAT-0089,49,Female,23.4,134,95,187,115,Placebo Standard,Non-Smoker,6,No,71.2
+PAT-0090,51,Female,27,140,77,238,94,Active Drug B,Former Smoker,5,No,89.8
+PAT-0091,46,Female,28.4,121,74,190,116,Placebo Standard,Active Smoker,6,No,77.6
+PAT-0092,63,Female,23.1,130,83,201,135,Active Drug B,Active Smoker,5,No,88.3
+PAT-0093,40,Female,28.7,121,65,182,70,Active Drug B,Non-Smoker,3,No,78.3
+PAT-0094,50,Male,21.9,124,79,211,77,Active Drug A,Non-Smoker,1,No,89.6
+PAT-0095,54,Male,26.6,107,70,256,83,Placebo Standard,Non-Smoker,10,Yes,73.2
+PAT-0096,41,Female,25.2,126,77,253,114,Active Drug A,Former Smoker,4,No,72.8
+PAT-0097,76,Female,24.2,145,93,242,115,Active Drug A,Former Smoker,11,No,85.5
+PAT-0098,54,Female,31,143,87,188,77,Active Drug B,Former Smoker,5,No,75.1
+PAT-0099,47,Male,30.5,128,89,255,115,Placebo Standard,Active Smoker,7,No,55.6
+PAT-0100,63,Male,23.2,113,92,227,70,Placebo Standard,Former Smoker,4,No,85.5
+PAT-0101,32,Female,28.3,124,94,200,91,Active Drug B,Non-Smoker,5,No,82.4
+PAT-0102,68,Female,26.9,130,82,154,97,Placebo Standard,Non-Smoker,7,No,68.3
+PAT-0103,78,Female,25.9,125,86,217,80,Active Drug B,Non-Smoker,4,No,83.5
+PAT-0104,55,Male,22.4,129,95,220,116,Active Drug A,Active Smoker,6,No,63.2
+PAT-0105,45,Male,42.1,116,77,209,99,Active Drug A,Former Smoker,7,No,81.5
+PAT-0106,33,Male,27.1,114,73,204,70,Active Drug A,Active Smoker,4,No,87.2
+PAT-0107,67,Male,25.9,148,69,194,88,Active Drug B,Active Smoker,7,Yes,78.4
+PAT-0108,45,Female,22.6,119,81,203,115,Placebo Standard,Non-Smoker,4,No,72.8
+PAT-0109,56,Female,20.8,137,70,204,126,Placebo Standard,Non-Smoker,5,No,64.2
+PAT-0110,55,Female,25.9,136,82,191,82,Active Drug B,Non-Smoker,5,No,85.6
+PAT-0111,51,Female,24.5,127,91,204,83,Active Drug B,Active Smoker,2,No,69.2
+PAT-0112,63,Female,28.1,118,84,220,127,Active Drug B,Non-Smoker,3,No,98.8
+PAT-0113,37,Female,30.2,138,89,177,88,Placebo Standard,Non-Smoker,4,No,72.8
+PAT-0114,70,Female,22.7,133,62,248,126,Placebo Standard,Non-Smoker,8,Yes,81.9
+PAT-0115,61,Female,28.9,143,70,180,114,Active Drug A,Former Smoker,5,No,84.3
+PAT-0116,65,Female,20.4,106,75,231,147,Placebo Standard,Former Smoker,9,Yes,75.9
+PAT-0117,40,Female,25.5,117,66,205,119,Placebo Standard,Former Smoker,4,No,59.9
+PAT-0118,68,Male,24.7,98,74,203,102,Active Drug B,Non-Smoker,7,No,85.3
+PAT-0119,47,Female,18.5,114,70,212,80,Active Drug A,Active Smoker,11,No,77.1
+PAT-0120,24,Female,27.2,115,79,173,84,Placebo Standard,Non-Smoker,7,No,71.8
+PAT-0121,43,Male,21.9,129,77,146,87,Active Drug A,Non-Smoker,5,No,92.8
+PAT-0122,31,Female,24.2,123,89,223,126,Active Drug A,Former Smoker,5,No,89.6
+PAT-0123,69,Female,24.7,106,95,200,128,Placebo Standard,Non-Smoker,8,No,81.8
+PAT-0124,39,Female,29.8,151,73,218,114,Placebo Standard,Non-Smoker,4,No,57
+PAT-0125,53,Male,24.3,135,77,199,133,Active Drug B,Former Smoker,4,No,92.7
+PAT-0126,41,Female,24.9,134,80,242,115,Active Drug B,Former Smoker,10,No,89.2
+PAT-0127,52,Male,29.5,144,94,206,101,Active Drug B,Active Smoker,5,No,85.6
+PAT-0128,54,Male,28.6,116,81,223,116,Active Drug A,Former Smoker,4,No,86
+PAT-0129,70,Male,23,159,75,226,121,Active Drug A,Non-Smoker,9,No,99
+PAT-0130,57,Male,36.7,127,83,265,106,Active Drug A,Active Smoker,2,No,65.7
+PAT-0131,54,Female,35.6,135,77,157,100,Active Drug B,Non-Smoker,2,No,82.7
+PAT-0132,59,Male,26.2,145,60,159,91,Active Drug A,Active Smoker,4,No,81.1
+PAT-0133,44,Female,19.9,136,86,225,116,Active Drug B,Non-Smoker,6,No,83.2
+PAT-0134,74,Male,34,126,79,232,70,Placebo Standard,Active Smoker,7,No,58
+PAT-0135,53,Female,42.9,141,98,227,90,Placebo Standard,Former Smoker,5,Yes,73
+PAT-0136,43,Female,28.8,103,84,196,96,Active Drug B,Non-Smoker,2,No,89.5
+PAT-0137,67,Male,23.7,128,60,229,125,Placebo Standard,Active Smoker,10,No,63.4
+PAT-0138,63,Female,24.1,112,85,232,93,Placebo Standard,Non-Smoker,6,No,79.6
+PAT-0139,65,Male,36.4,116,79,189,109,Active Drug B,Non-Smoker,3,No,84.3
+PAT-0140,80,Female,27.5,127,108,227,126,Active Drug A,Non-Smoker,11,Yes,84.1
+PAT-0141,37,Male,30.3,112,86,289,109,Active Drug B,Non-Smoker,3,No,80.5
+PAT-0142,29,Female,31,95,89,182,130,Active Drug B,Non-Smoker,5,Yes,77.6
+PAT-0143,57,Female,28.6,106,85,193,148,Active Drug A,Non-Smoker,1,Yes,93.4
+PAT-0144,67,Male,31.4,126,72,210,154,Active Drug B,Former Smoker,8,No,76.3
+PAT-0145,64,Male,25.8,125,92,212,129,Active Drug A,Active Smoker,1,No,75.5
+PAT-0146,50,Male,36.1,128,78,220,136,Active Drug A,Former Smoker,6,No,87
+PAT-0147,46,Male,28.5,137,90,237,105,Active Drug A,Active Smoker,4,No,80
+PAT-0148,51,Male,25.9,162,78,197,95,Active Drug B,Non-Smoker,7,No,88.8
+PAT-0149,42,Female,33.7,96,68,217,88,Placebo Standard,Active Smoker,7,No,64.1
+PAT-0150,46,Male,18.5,123,90,164,70,Active Drug A,Non-Smoker,7,Yes,84.8

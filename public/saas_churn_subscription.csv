@@ -1,0 +1,141 @@
+Account_ID,Customer_Segment,Plan_Tier,Monthly_Charges_USD,Tenure_Months,Total_Charges_USD,Support_Tickets,Login_Frequency_Weekly,Storage_Used_GB,Contract_Type,Churned
+ACC-0001,SMB,Custom Elite,572.24,5,2432.02,3,15,134.8,Two-Year,No
+ACC-0002,SMB,Professional,90.27,6,460.38,0,17,151.3,Two-Year,No
+ACC-0003,Startup,Professional,136.02,23,2878.18,5,3,63,One-Year,No
+ACC-0004,Startup,Professional,141.39,19,2283.45,3,4,15.1,Two-Year,Yes
+ACC-0005,Mid-Market,Custom Elite,698.81,7,4157.92,3,14,5,Two-Year,No
+ACC-0006,SMB,Custom Elite,1057.22,37,35987.77,0,21,30,One-Year,No
+ACC-0007,Enterprise,Enterprise,451.71,31,11902.56,5,11,98.7,Two-Year,No
+ACC-0008,Enterprise,Custom Elite,764.37,14,10701.18,0,3,146.4,Month-to-Month,No
+ACC-0009,SMB,Starter,37.45,28,964.71,2,16,5,One-Year,No
+ACC-0010,Mid-Market,Custom Elite,914.51,40,31093.34,8,11,239.7,Two-Year,Yes
+ACC-0011,Startup,Starter,69.79,17,1091.52,2,3,162.5,One-Year,No
+ACC-0012,Startup,Starter,64.55,7,384.07,1,12,31.6,Two-Year,No
+ACC-0013,Enterprise,Enterprise,413.88,40,16555.2,1,12,15.8,Month-to-Month,No
+ACC-0014,SMB,Enterprise,484.14,8,3563.27,0,20,106.7,One-Year,Yes
+ACC-0015,Startup,Professional,132.42,25,3310.5,0,13,162.4,Month-to-Month,No
+ACC-0016,Startup,Starter,55.06,19,962.45,2,14,62.9,One-Year,No
+ACC-0017,Startup,Starter,48.03,39,1592.19,7,1,199.5,Two-Year,Yes
+ACC-0018,SMB,Starter,42.57,17,615.14,1,6,239.9,Two-Year,No
+ACC-0019,Startup,Professional,90.18,16,1327.45,3,20,131.3,One-Year,No
+ACC-0020,Mid-Market,Starter,48.84,42,2051.28,8,23,5,Month-to-Month,Yes
+ACC-0021,Startup,Professional,118.14,33,3898.62,0,21,345,Month-to-Month,No
+ACC-0022,Startup,Professional,162.94,23,3447.81,3,10,198.1,One-Year,No
+ACC-0023,Enterprise,Enterprise,343.63,29,8470.48,2,23,157.6,Two-Year,No
+ACC-0024,Enterprise,Enterprise,287.63,1,244.49,7,4,185,Two-Year,No
+ACC-0025,Startup,Starter,32.69,40,1307.6,4,8,57.6,Month-to-Month,No
+ACC-0026,SMB,Professional,118.68,37,4039.87,0,22,172.5,One-Year,No
+ACC-0027,Mid-Market,Custom Elite,831.56,43,30393.52,3,17,153.2,Two-Year,No
+ACC-0028,SMB,Starter,43.79,25,1094.75,1,9,155,Month-to-Month,No
+ACC-0029,Startup,Professional,125.2,48,5108.16,0,27,47.8,Two-Year,No
+ACC-0030,Enterprise,Custom Elite,668.09,12,8017.08,2,11,46.4,Month-to-Month,Yes
+ACC-0031,Mid-Market,Starter,47.89,37,1771.93,0,9,198.9,Month-to-Month,No
+ACC-0032,SMB,Professional,125.44,23,2654.31,2,7,74.2,One-Year,No
+ACC-0033,Enterprise,Enterprise,466.88,31,12302.29,7,17,189.3,Two-Year,No
+ACC-0034,SMB,Starter,48.66,45,2189.7,0,29,168.4,Month-to-Month,No
+ACC-0035,Enterprise,Enterprise,377.55,43,16234.65,4,27,56.4,Month-to-Month,No
+ACC-0036,Enterprise,Enterprise,374.4,32,10183.68,2,23,206.4,Two-Year,No
+ACC-0037,Startup,Starter,51.2,15,706.56,7,12,182.4,One-Year,No
+ACC-0038,SMB,Custom Elite,911.12,1,774.45,2,1,5,Two-Year,Yes
+ACC-0039,SMB,Starter,46.77,45,1936.28,1,13,116.4,One-Year,No
+ACC-0040,Enterprise,Custom Elite,865.1,2,1730.2,1,11,141.3,Month-to-Month,Yes
+ACC-0041,SMB,Starter,50.91,35,1639.3,8,6,5,One-Year,No
+ACC-0042,SMB,Professional,158.78,34,4588.74,4,9,236.7,Two-Year,No
+ACC-0043,Enterprise,Custom Elite,661.24,21,11803.13,2,10,134.8,Two-Year,No
+ACC-0044,Mid-Market,Starter,53.09,27,1433.43,5,25,208.2,Month-to-Month,No
+ACC-0045,Startup,Starter,45.5,48,2184,3,6,46.5,Month-to-Month,No
+ACC-0046,Mid-Market,Custom Elite,731.38,30,20186.09,5,21,100.6,One-Year,No
+ACC-0047,Enterprise,Custom Elite,777.08,23,15191.91,0,10,80.6,Two-Year,Yes
+ACC-0048,Startup,Starter,48.46,30,1337.5,4,13,234.5,One-Year,No
+ACC-0049,Mid-Market,Starter,47.67,48,2288.16,6,16,39.8,Month-to-Month,No
+ACC-0050,Startup,Professional,124.7,22,2743.4,3,19,198.6,Month-to-Month,No
+ACC-0051,Enterprise,Enterprise,434.43,41,17811.63,5,6,159,Month-to-Month,No
+ACC-0052,SMB,Enterprise,466.74,34,15869.16,0,8,281.2,Month-to-Month,No
+ACC-0053,Enterprise,Custom Elite,769.41,9,5885.99,2,20,148.1,Two-Year,No
+ACC-0054,SMB,Professional,141.64,2,260.62,0,12,133.2,One-Year,No
+ACC-0055,Mid-Market,Professional,121.89,47,4869.51,0,8,5,Two-Year,No
+ACC-0056,Enterprise,Enterprise,401.74,11,4419.14,5,16,183,Month-to-Month,No
+ACC-0057,Enterprise,Enterprise,334.25,38,10796.27,0,6,155.9,Two-Year,Yes
+ACC-0058,Enterprise,Enterprise,335.04,5,1675.2,3,5,183.3,Month-to-Month,No
+ACC-0059,Mid-Market,Custom Elite,753.78,6,4160.87,0,10,5,One-Year,No
+ACC-0060,Enterprise,Enterprise,362.05,42,15206.1,4,7,160.5,Month-to-Month,No
+ACC-0061,SMB,Custom Elite,705.44,13,8437.06,4,14,271,One-Year,No
+ACC-0062,SMB,Professional,123.2,47,5327.17,3,4,123.7,One-Year,No
+ACC-0063,Mid-Market,Custom Elite,767.52,21,16117.92,2,17,12.7,Month-to-Month,Yes
+ACC-0064,SMB,Enterprise,383.52,47,18025.44,4,4,92,Month-to-Month,Yes
+ACC-0065,Startup,Starter,46.36,47,1852.08,0,18,133.4,Two-Year,No
+ACC-0066,SMB,Enterprise,512.2,4,2048.8,0,8,203.5,Month-to-Month,No
+ACC-0067,Startup,Professional,155.06,4,620.24,4,11,113.1,Month-to-Month,No
+ACC-0068,Mid-Market,Enterprise,526.41,31,13870.9,4,13,100.5,Two-Year,No
+ACC-0069,Enterprise,Enterprise,464.12,47,21813.64,3,1,57.2,Month-to-Month,Yes
+ACC-0070,Startup,Professional,117.09,47,5503.23,5,16,173.7,Month-to-Month,No
+ACC-0071,Enterprise,Custom Elite,864,14,12096,0,20,75.7,Month-to-Month,Yes
+ACC-0072,Startup,Professional,125.16,36,4145.3,0,20,114.1,One-Year,No
+ACC-0073,Startup,Professional,138.46,20,2769.2,4,2,268.7,Month-to-Month,Yes
+ACC-0074,Enterprise,Custom Elite,818.26,26,21274.76,5,14,207.6,Month-to-Month,Yes
+ACC-0075,Mid-Market,Enterprise,384.8,37,13098.59,3,5,244.1,One-Year,No
+ACC-0076,Startup,Professional,147.87,4,591.48,5,17,206.9,Month-to-Month,No
+ACC-0077,SMB,Enterprise,345.12,35,12079.2,8,13,297.8,Month-to-Month,Yes
+ACC-0078,Mid-Market,Custom Elite,890.63,35,28678.29,3,21,161.1,One-Year,No
+ACC-0079,SMB,Starter,41.61,1,38.28,3,12,127.4,One-Year,No
+ACC-0080,Enterprise,Custom Elite,907.32,5,4173.67,5,1,5,One-Year,Yes
+ACC-0081,Enterprise,Enterprise,377.64,21,6740.87,0,13,163.4,Two-Year,No
+ACC-0082,Startup,Starter,59.49,35,2082.15,3,18,123.5,Month-to-Month,No
+ACC-0083,SMB,Custom Elite,907.38,15,12521.84,4,1,158.2,One-Year,Yes
+ACC-0084,Mid-Market,Professional,103.1,11,1043.37,8,18,139,One-Year,No
+ACC-0085,Mid-Market,Enterprise,341,21,6588.12,7,15,173.2,One-Year,No
+ACC-0086,Mid-Market,Enterprise,455.45,2,774.26,8,21,97.9,Two-Year,No
+ACC-0087,SMB,Starter,46.55,8,342.61,0,7,254.5,One-Year,No
+ACC-0088,SMB,Professional,116.05,11,1085.07,2,7,118.3,Two-Year,No
+ACC-0089,Mid-Market,Custom Elite,737.68,31,21038.63,0,4,156.7,One-Year,No
+ACC-0090,Enterprise,Enterprise,417.31,23,8158.41,0,9,34.9,Two-Year,No
+ACC-0091,SMB,Professional,141.4,36,4326.84,4,17,93.5,Two-Year,No
+ACC-0092,Startup,Starter,50.07,4,200.28,5,16,235.1,Month-to-Month,No
+ACC-0093,Startup,Starter,54.72,44,2046.53,4,25,187.5,Two-Year,No
+ACC-0094,SMB,Professional,116.07,45,4805.3,5,16,26,One-Year,No
+ACC-0095,Enterprise,Custom Elite,899.25,27,20637.79,2,14,19.5,Two-Year,No
+ACC-0096,Startup,Professional,124.21,24,2981.04,7,17,255,Month-to-Month,Yes
+ACC-0097,Startup,Starter,42.28,12,431.26,3,11,24.6,Two-Year,No
+ACC-0098,Startup,Professional,127.79,39,4236.24,1,28,210.3,Two-Year,No
+ACC-0099,Mid-Market,Custom Elite,741.25,43,31873.75,5,18,5,Month-to-Month,No
+ACC-0100,Enterprise,Custom Elite,831.97,35,26789.43,6,2,160.3,One-Year,Yes
+ACC-0101,Enterprise,Custom Elite,876.46,22,16389.8,4,25,174.8,Two-Year,No
+ACC-0102,Startup,Starter,39.61,35,1275.44,0,10,66,One-Year,No
+ACC-0103,Mid-Market,Custom Elite,799.4,28,20592.54,2,9,102.3,One-Year,No
+ACC-0104,SMB,Custom Elite,986.15,8,7258.06,7,9,218.2,One-Year,Yes
+ACC-0105,Startup,Starter,48.73,37,1658.77,2,7,61.3,One-Year,No
+ACC-0106,Startup,Starter,40.65,30,1219.5,0,4,153.6,Month-to-Month,Yes
+ACC-0107,SMB,Professional,142.8,21,2998.8,0,17,184.3,Month-to-Month,No
+ACC-0108,Startup,Starter,59.35,48,2620.9,3,6,131.6,One-Year,No
+ACC-0109,Startup,Starter,47.92,19,837.64,2,28,139.9,One-Year,No
+ACC-0110,Enterprise,Enterprise,433.75,38,15163.9,4,7,51.3,One-Year,No
+ACC-0111,SMB,Starter,55.38,36,1834.19,4,17,101.2,One-Year,Yes
+ACC-0112,Mid-Market,Starter,38.42,8,261.26,3,1,52.7,Two-Year,Yes
+ACC-0113,Mid-Market,Professional,126.74,23,2477.77,4,12,96.8,Two-Year,Yes
+ACC-0114,SMB,Starter,43.65,34,1484.1,7,7,74.6,Month-to-Month,Yes
+ACC-0115,Enterprise,Enterprise,400.97,36,14434.92,0,8,5,Month-to-Month,Yes
+ACC-0116,Mid-Market,Enterprise,469.91,5,1997.12,6,20,138.8,Two-Year,No
+ACC-0117,Startup,Professional,130.39,46,5518.1,5,15,75,One-Year,No
+ACC-0118,Enterprise,Enterprise,333.4,6,2000.4,2,20,225.4,Month-to-Month,No
+ACC-0119,Startup,Professional,148.13,29,3952.11,3,9,100.3,One-Year,Yes
+ACC-0120,Startup,Professional,119.73,12,1221.25,4,23,239.8,Two-Year,No
+ACC-0121,Enterprise,Custom Elite,832.23,48,36751.28,0,11,130.6,One-Year,No
+ACC-0122,SMB,Enterprise,412.42,43,15073.95,3,19,111.2,Two-Year,No
+ACC-0123,Mid-Market,Professional,143.76,35,4629.07,3,21,100,One-Year,No
+ACC-0124,Mid-Market,Starter,41.71,36,1501.56,4,19,249.6,Month-to-Month,No
+ACC-0125,Mid-Market,Professional,117.49,14,1398.13,2,10,283.1,Two-Year,Yes
+ACC-0126,Startup,Professional,120.04,47,5641.88,0,12,223.4,Month-to-Month,Yes
+ACC-0127,Startup,Starter,51.68,5,237.73,0,22,5.7,One-Year,No
+ACC-0128,Mid-Market,Custom Elite,810.4,5,3444.2,5,13,131.7,Two-Year,No
+ACC-0129,Enterprise,Enterprise,483.65,40,17798.32,3,7,191.8,One-Year,No
+ACC-0130,Mid-Market,Enterprise,448.5,33,13616.46,4,20,129.6,One-Year,No
+ACC-0131,Mid-Market,Custom Elite,847.67,37,28854.69,2,9,156,One-Year,No
+ACC-0132,SMB,Starter,42.67,36,1413.23,3,19,83.8,One-Year,No
+ACC-0133,Mid-Market,Custom Elite,911.57,18,15095.6,0,9,64.6,One-Year,Yes
+ACC-0134,Enterprise,Enterprise,397.39,20,7947.8,5,11,160.1,Month-to-Month,Yes
+ACC-0135,Enterprise,Enterprise,412.13,41,16897.33,2,1,242.5,Month-to-Month,Yes
+ACC-0136,Startup,Starter,42.2,8,337.6,1,14,38.6,Month-to-Month,No
+ACC-0137,Enterprise,Enterprise,466.42,9,3568.11,2,17,12.4,Two-Year,No
+ACC-0138,Mid-Market,Enterprise,297.79,40,10124.86,8,13,234.9,Two-Year,No
+ACC-0139,Startup,Professional,106.19,42,3790.98,3,14,133.3,Two-Year,No
+ACC-0140,Startup,Starter,42.73,9,384.57,3,11,331.5,Month-to-Month,Yes

@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GenAI Data Analyst — Vanilla HTML / CSS / JS Edition</title>
+  <!-- Plotly & PapaParse from CDN -->
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <style>
+    :root {
+      --bg: #f7f4ef;
+      --card-bg: #fdfbf7;
+      --card-alt: #efe6d8;
+      --border: #ded5c5;
+      --text: #1c1917;
+      --text-muted: #70685c;
+      --accent: #24211e;
+      --accent-hover: #3b3530;
+      --primary: #15803d;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Top Navbar */
+    header {
+      background-color: var(--card-bg);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-badge {
+      background-color: var(--accent);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+    }
+    .brand-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background-color: var(--card-bg);
+      color: var(--text);
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .btn:hover { background-color: var(--card-alt); }
+    .btn-primary {
+      background-color: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .btn-primary:hover { background-color: var(--accent-hover); }
+
+    /* Main Container */
+    .app-layout {
+      display: flex;
+      flex: 1;
+    }
+    sidebar {
+      width: 260px;
+      background-color: var(--card-bg);
+      border-right: 1px solid var(--border);
+      padding: 20px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .sidebar-section-title {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+    .tab-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: none;
+      background: transparent;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      text-align: left;
+      transition: background 0.15s;
+    }
+    .tab-btn:hover { background-color: var(--card-alt); }
+    .tab-btn.active {
+      background-color: var(--accent);
+      color: #fff;
+      font-weight: 600;
+    }
+
+    /* Main Workspace */
+    main {
+      flex: 1;
+      padding: 24px 32px;
+      overflow-y: auto;
+      max-width: 1300px;
+    }
+
+    /* Card Panels */
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .card-subtitle {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    /* KPI Grid */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .kpi-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .kpi-label { font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--text-muted); }
+    .kpi-val { font-size: 24px; font-weight: 800; color: var(--text); margin: 4px 0; }
+    .kpi-sub { font-size: 11px; color: var(--text-muted); }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: var(--card-alt);
+      padding: 10px 14px;
+      font-weight: 600;
+      color: var(--text);
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 8px 14px;
+      border-bottom: 1px solid #f0eae1;
+    }
+    tr:hover td { background-color: rgba(239, 230, 216, 0.4); }
+
+    /* Grid Layouts */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    @media (max-width: 900px) {
+      .app-layout { flex-direction: column; }
+      sidebar { width: 100%; border-right: none; border-bottom: 1px solid var(--border); }
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    /* Forms */
+    .form-group {
+      margin-bottom: 12px;
+    }
+    .form-label {
+      display: block;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: var(--text);
+    }
+    select, input[type="text"] {
+      width: 100%;
+      padding: 8px 12px;
+      font-size: 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      background-color: #fff;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      background-color: var(--card-alt);
+      color: var(--text);
+    }
+    .badge-outlier {
+      background-color: #fef2f2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+    }
+    .badge-clean {
+      background-color: #f0fdf4;
+      color: #166534;
+      border: 1px solid #bbf7d0;
+    }
+
+    /* Chat Messages */
+    .chat-box {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      height: 350px;
+      overflow-y: auto;
+      padding: 16px;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .chat-msg {
+      max-width: 80%;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.4;
+    }
+    .chat-user {
+      align-self: flex-end;
+      background-color: var(--accent);
+      color: #fff;
+    }
+    .chat-assistant {
+      align-self: flex-start;
+      background-color: var(--card-alt);
+      color: var(--text);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <header>
+    <div class="brand">
+      <span class="brand-badge">HTML5 / JS</span>
+      <span class="brand-title">GenAI Data Analyst</span>
+      <span style="font-size: 12px; color: var(--text-muted); margin-left: 8px;">Standalone Vanilla Edition</span>
+    </div>
+    <div class="nav-links">
+      <span id="dataset-status" class="badge">No dataset loaded</span>
+      <a href="/" class="btn btn-primary">Switch to React Studio</a>
+    </div>
+  </header>
+
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <sidebar>
+      <div>
+        <div class="sidebar-section-title">Sample Datasets</div>
+        <div style="display: flex; flex-direction: column; gap: 6px;">
+          <button class="btn" onclick="loadSample('/sample_sales_data.csv', 'Retail Sales Performance')">🛒 Retail Sales</button>
+          <button class="btn" onclick="loadSample('/saas_churn_subscription.csv', 'SaaS Churn & Subscriptions')">💻 SaaS Churn</button>
+          <button class="btn" onclick="loadSample('/healthcare_patient_outcomes.csv', 'Healthcare Clinical Outcomes')">🏥 Healthcare</button>
+          <button class="btn" onclick="loadSample('/hr_workforce_attrition.csv', 'HR Workforce Analytics')">👥 HR Workforce</button>
+          <button class="btn" onclick="loadSample('/financial_portfolio_risk.csv', 'Financial Risk & Stocks')">📈 Financial Risk</button>
+        </div>
+      </div>
+
+      <div style="margin-top: 10px;">
+        <div class="sidebar-section-title">Upload Custom File</div>
+        <input type="file" id="csv-file-input" accept=".csv,.tsv" style="font-size: 11px; width: 100%;" onchange="handleFileUpload(event)" />
+      </div>
+
+      <div style="margin-top: 16px;">
+        <div class="sidebar-section-title">Analytical Views</div>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <button class="tab-btn active" onclick="switchTab('overview', this)">📊 Dataset Overview</button>
+          <button class="tab-btn" onclick="switchTab('visuals', this)">📈 Visual Charts</button>
+          <button class="tab-btn" onclick="switchTab('anomalies', this)">⚠️ Anomaly Detection</button>
+          <button class="tab-btn" onclick="switchTab('stats', this)">📐 Hypothesis Testing</button>
+          <button class="tab-btn" onclick="switchTab('chat', this)">💬 Gemini AI Analyst</button>
+        </div>
+      </div>
+    </sidebar>
+
+    <!-- Main Workspace -->
+    <main>
+      <!-- TAB 1: OVERVIEW -->
+      <section id="tab-overview">
+        <div class="card">
+          <div class="card-title" id="overview-title">Dataset Overview</div>
+          <div class="card-subtitle" id="overview-subtitle">Upload a CSV or choose a preset dataset above to begin automated analysis.</div>
+          
+          <div class="kpi-grid" id="kpi-container">
+            <div class="kpi-card"><div class="kpi-label">Total Rows</div><div class="kpi-val" id="kpi-rows">-</div><div class="kpi-sub">Verified records</div></div>
+            <div class="kpi-card"><div class="kpi-label">Columns</div><div class="kpi-val" id="kpi-cols">-</div><div class="kpi-sub" id="kpi-types">-</div></div>
+            <div class="kpi-card"><div class="kpi-label">Missing Cells</div><div class="kpi-val" id="kpi-missing">-</div><div class="kpi-sub" id="kpi-missing-pct">-</div></div>
+            <div class="kpi-card"><div class="kpi-label">Duplicate Rows</div><div class="kpi-val" id="kpi-duplicates">-</div><div class="kpi-sub">Exact matches</div></div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Column Statistical Profiles</div>
+          <div class="card-subtitle">Automatic data-type inference and summary statistics for every feature</div>
+          <div class="table-container">
+            <table id="column-profile-table">
+              <thead>
+                <tr>
+                  <th>Column</th>
+                  <th>Type</th>
+                  <th>Unique</th>
+                  <th>Missing</th>
+                  <th>Mean</th>
+                  <th>Median</th>
+                  <th>Std Dev</th>
+                  <th>Min</th>
+                  <th>Max</th>
+                </tr>
+              </thead>
+              <tbody id="column-profile-body">
+                <tr><td colspan="9" style="text-align: center; color: var(--text-muted);">Please load a dataset to inspect column profiles.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">First 10 Data Records</div>
+          <div class="card-subtitle">Live preview of raw data records</div>
+          <div class="table-container">
+            <table id="data-preview-table">
+              <thead id="data-preview-head"></thead>
+              <tbody id="data-preview-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 2: VISUALS -->
+      <section id="tab-visuals" style="display: none;">
+        <div class="card">
+          <div class="card-title">Interactive Visualizations</div>
+          <div class="card-subtitle">Rendered via Plotly.js in pure JavaScript</div>
+          
+          <div class="grid-2">
+            <div>
+              <div class="form-group">
+                <label class="form-label">Numerical Feature X</label>
+                <select id="viz-select-x" onchange="renderCharts()"></select>
+              </div>
+              <div id="chart-hist" style="height: 320px;"></div>
+            </div>
+            <div>
+              <div class="form-group">
+                <label class="form-label">Numerical Feature Y (Scatter / Box)</label>
+                <select id="viz-select-y" onchange="renderCharts()"></select>
+              </div>
+              <div id="chart-scatter" style="height: 320px;"></div>
+            </div>
+          </div>
+
+          <div style="margin-top: 24px;">
+            <div class="card-title">Correlation Heatmap</div>
+            <div class="card-subtitle">Pairwise Pearson correlation matrix across all numerical attributes</div>
+            <div id="chart-heatmap" style="height: 360px;"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 3: ANOMALY DETECTION -->
+      <section id="tab-anomalies" style="display: none;">
+        <div class="card">
+          <div class="card-title">Statistical Anomaly & Outlier Inspector</div>
+          <div class="card-subtitle">Identifies extreme values using Tukey's 1.5× IQR fences & Z-score thresholds</div>
+          
+          <div style="max-width: 300px; margin-bottom: 16px;">
+            <label class="form-label">Inspect Column for Anomalies</label>
+            <select id="anomaly-col-select" onchange="inspectAnomalies()"></select>
+          </div>
+
+          <div class="kpi-grid">
+            <div class="kpi-card"><div class="kpi-label">Anomalies Detected</div><div class="kpi-val" id="anom-count">0</div><div class="kpi-sub" id="anom-pct">0.0% of rows</div></div>
+            <div class="kpi-card"><div class="kpi-label">Lower Bound (Q1 - 1.5×IQR)</div><div class="kpi-val" id="anom-lower">-</div><div class="kpi-sub">Fences</div></div>
+            <div class="kpi-card"><div class="kpi-label">Upper Bound (Q3 + 1.5×IQR)</div><div class="kpi-val" id="anom-upper">-</div><div class="kpi-sub">Fences</div></div>
+          </div>
+
+          <div id="chart-anomaly" style="height: 350px; margin-bottom: 20px;"></div>
+
+          <div class="card-title">Flagged Outlier Records</div>
+          <div class="table-container">
+            <table>
+              <thead id="anomaly-table-head"></thead>
+              <tbody id="anomaly-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 4: HYPOTHESIS TESTING -->
+      <section id="tab-stats" style="display: none;">
+        <div class="card">
+          <div class="card-title">Inferential Hypothesis Testing</div>
+          <div class="card-subtitle">Welch's Two-Sample t-Test & One-Way ANOVA across categorical groups</div>
+
+          <div class="grid-2">
+            <div style="background: var(--card-alt); padding: 16px; border-radius: 8px;">
+              <div class="card-title" style="font-size: 13px;">Welch's Two-Sample t-Test</div>
+              <div class="card-subtitle">Tests if two group means are significantly different (unequal variances)</div>
+
+              <div class="form-group">
+                <label class="form-label">Numerical Metric</label>
+                <select id="ttest-num"></select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Grouping Category</label>
+                <select id="ttest-cat" onchange="updateTtestGroups()"></select>
+              </div>
+              <div class="grid-2">
+                <div class="form-group">
+                  <label class="form-label">Group A</label>
+                  <select id="ttest-grp-a"></select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Group B</label>
+                  <select id="ttest-grp-b"></select>
+                </div>
+              </div>
+              <button class="btn btn-primary" onclick="runTtest()">Compute Welch t-Test</button>
+              <div id="ttest-result" style="margin-top: 12px; font-size: 12px;"></div>
+            </div>
+
+            <div style="background: var(--card-alt); padding: 16px; border-radius: 8px;">
+              <div class="card-title" style="font-size: 13px;">One-Way ANOVA (F-Test)</div>
+              <div class="card-subtitle">Determines if differences exist between 3 or more category groups</div>
+
+              <div class="form-group">
+                <label class="form-label">Numerical Metric</label>
+                <select id="anova-num"></select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Grouping Category</label>
+                <select id="anova-cat"></select>
+              </div>
+              <button class="btn btn-primary" onclick="runAnova()">Compute One-Way ANOVA</button>
+              <div id="anova-result" style="margin-top: 12px; font-size: 12px;"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 5: GEMINI AI CHAT -->
+      <section id="tab-chat" style="display: none;">
+        <div class="card">
+          <div class="card-title">Ask Gemini Data Analyst</div>
+          <div class="card-subtitle">Ask questions about trends, correlations, or anomalies in your active dataset</div>
+
+          <div class="chat-box" id="chat-messages">
+            <div class="chat-msg chat-assistant">
+              Hello! I am your AI Data Analyst. Ask me anything about the active dataset, or request automated statistical insights.
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 8px;">
+            <input type="text" id="chat-input" placeholder="e.g. What are the key drivers of performance? Are there any outliers?" onkeydown="if(event.key==='Enter') sendChatMessage()" />
+            <button class="btn btn-primary" onclick="sendChatMessage()">Ask Gemini</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Vanilla JavaScript Logic -->
+  <script>
+    // Global State
+    let currentData = [];
+    let currentName = "";
+    let numericalCols = [];
+    let categoricalCols = [];
+
+    // Switch Tabs
+    function switchTab(tabId, btnElement) {
+      document.querySelectorAll("main > section").forEach(s => s.style.display = "none");
+      const target = document.getElementById("tab-" + tabId);
+      if (target) target.style.display = "block";
+
+      document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+      if (btnElement) btnElement.classList.add("active");
+
+      if (tabId === "visuals") renderCharts();
+      if (tabId === "anomalies") inspectAnomalies();
+    }
+
+    // Load CSV from URL
+    function loadSample(url, name) {
+      document.getElementById("dataset-status").innerText = "Loading " + name + "...";
+      Papa.parse(url, {
+        download: true,
+        header: true,
+        dynamicTyping: true,
+        skipEmptyLines: true,
+        complete: function(results) {
+          processDataset(results.data, name);
+        },
+        error: function(err) {
+          alert("Failed to load sample dataset: " + err.message);
+        }
+      });
+    }
+
+    // Handle File Upload
+    function handleFileUpload(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      Papa.parse(file, {
+        header: true,
+        dynamicTyping: true,
+        skipEmptyLines: true,
+        complete: function(results) {
+          processDataset(results.data, file.name);
+        }
+      });
+    }
+
+    // Process & Profile Dataset
+    function processDataset(data, name) {
+      if (!data || data.length === 0) return;
+      currentData = data;
+      currentName = name;
+
+      const cols = Object.keys(data[0]);
+      numericalCols = [];
+      categoricalCols = [];
+
+      // Categorize columns
+      cols.forEach(c => {
+        const val = data.find(r => r[c] !== null && r[c] !== undefined && r[c] !== "")?.[c];
+        if (typeof val === "number") {
+          numericalCols.push(c);
+        } else {
+          categoricalCols.push(c);
+        }
+      });
+
+      // Calculate missing & duplicates
+      let missingCount = 0;
+      const seen = new Set();
+      let dups = 0;
+      data.forEach(row => {
+        const key = JSON.stringify(row);
+        if (seen.has(key)) dups++;
+        else seen.add(key);
+
+        cols.forEach(c => {
+          if (row[c] === null || row[c] === undefined || row[c] === "") missingCount++;
+        });
+      });
+
+      // Update UI Header & KPIs
+      document.getElementById("dataset-status").innerText = name + " (" + data.length + " rows)";
+      document.getElementById("dataset-status").className = "badge badge-clean";
+      document.getElementById("overview-title").innerText = name;
+      document.getElementById("overview-subtitle").innerText = "Loaded " + data.length + " rows across " + cols.length + " features.";
+
+      document.getElementById("kpi-rows").innerText = data.length.toLocaleString();
+      document.getElementById("kpi-cols").innerText = cols.length;
+      document.getElementById("kpi-types").innerText = numericalCols.length + " num / " + categoricalCols.length + " cat";
+      document.getElementById("kpi-missing").innerText = missingCount;
+      document.getElementById("kpi-missing-pct").innerText = ((missingCount / (data.length * cols.length)) * 100).toFixed(1) + "% total";
+      document.getElementById("kpi-duplicates").innerText = dups;
+
+      // Populate Profiles Table
+      const profileBody = document.getElementById("column-profile-body");
+      profileBody.innerHTML = "";
+
+      cols.forEach(c => {
+        const vals = data.map(r => r[c]).filter(v => v !== null && v !== undefined && v !== "");
+        const uniqueVals = new Set(vals).size;
+        const missing = data.length - vals.length;
+        const isNum = numericalCols.includes(c);
+
+        let mean = "-", median = "-", std = "-", min = "-", max = "-";
+        if (isNum && vals.length > 0) {
+          const nums = vals.map(Number).filter(v => !isNaN(v)).sort((a, b) => a - b);
+          if (nums.length > 0) {
+            const sum = nums.reduce((a, b) => a + b, 0);
+            mean = (sum / nums.length).toFixed(2);
+            min = nums[0].toFixed(2);
+            max = nums[nums.length - 1].toFixed(2);
+            const mid = Math.floor(nums.length / 2);
+            median = (nums.length % 2 !== 0 ? nums[mid] : (nums[mid - 1] + nums[mid]) / 2).toFixed(2);
+            const variance = nums.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / nums.length;
+            std = Math.sqrt(variance).toFixed(2);
+          }
+        }
+
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td><strong>${c}</strong></td>
+          <td><span class="badge">${isNum ? "Numerical" : "Categorical"}</span></td>
+          <td>${uniqueVals}</td>
+          <td>${missing}</td>
+          <td>${mean}</td>
+          <td>${median}</td>
+          <td>${std}</td>
+          <td>${min}</td>
+          <td>${max}</td>
+        `;
+        profileBody.appendChild(tr);
+      });
+
+      // Populate Data Preview Table
+      const pHead = document.getElementById("data-preview-head");
+      const pBody = document.getElementById("data-preview-body");
+      pHead.innerHTML = "<tr>" + cols.map(c => `<th>${c}</th>`).join("") + "</tr>";
+      pBody.innerHTML = "";
+      data.slice(0, 10).forEach(row => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = cols.map(c => `<td>${row[c] !== undefined && row[c] !== null ? row[c] : ""}</td>`).join("");
+        pBody.appendChild(tr);
+      });
+
+      // Update Select Dropdowns
+      populateDropdown("viz-select-x", numericalCols);
+      populateDropdown("viz-select-y", numericalCols, 1);
+      populateDropdown("anomaly-col-select", numericalCols);
+      populateDropdown("ttest-num", numericalCols);
+      populateDropdown("ttest-cat", categoricalCols);
+      populateDropdown("anova-num", numericalCols);
+      populateDropdown("anova-cat", categoricalCols);
+
+      updateTtestGroups();
+    }
+
+    function populateDropdown(id, options, defaultIndex = 0) {
+      const el = document.getElementById(id);
+      if (!el) return;
+      el.innerHTML = "";
+      options.forEach((opt, idx) => {
+        const o = document.createElement("option");
+        o.value = opt;
+        o.innerText = opt;
+        if (idx === defaultIndex) o.selected = true;
+        el.appendChild(o);
+      });
+    }
+
+    // Render Charts
+    function renderCharts() {
+      if (!currentData || currentData.length === 0) return;
+      const xCol = document.getElementById("viz-select-x").value || numericalCols[0];
+      const yCol = document.getElementById("viz-select-y").value || numericalCols[1];
+
+      if (!xCol) return;
+      const xVals = currentData.map(r => Number(r[xCol])).filter(v => !isNaN(v));
+
+      // Histogram
+      Plotly.newPlot("chart-hist", [{
+        x: xVals,
+        type: "histogram",
+        marker: { color: "#24211e" },
+        name: xCol
+      }], {
+        title: { text: "Distribution of " + xCol },
+        margin: { t: 40, b: 40, l: 40, r: 20 },
+        paper_bgcolor: "#fdfbf7",
+        plot_bgcolor: "#fdfbf7"
+      }, { responsive: true, displayModeBar: false });
+
+      // Scatter or Box
+      if (yCol) {
+        const yVals = currentData.map(r => Number(r[yCol])).filter(v => !isNaN(v));
+        Plotly.newPlot("chart-scatter", [{
+          x: xVals,
+          y: yVals,
+          mode: "markers",
+          type: "scatter",
+          marker: { color: "#15803d", size: 6, opacity: 0.7 }
+        }], {
+          title: { text: xCol + " vs " + yCol },
+          xaxis: { title: xCol },
+          yaxis: { title: yCol },
+          margin: { t: 40, b: 40, l: 50, r: 20 },
+          paper_bgcolor: "#fdfbf7",
+          plot_bgcolor: "#fdfbf7"
+        }, { responsive: true, displayModeBar: false });
+      }
+
+      // Correlation Heatmap
+      const validNumCols = numericalCols.slice(0, 6);
+      if (validNumCols.length > 1) {
+        const z = [];
+        validNumCols.forEach(col1 => {
+          const row = [];
+          validNumCols.forEach(col2 => {
+            row.push(calculatePearson(col1, col2));
+          });
+          z.push(row);
+        });
+
+        Plotly.newPlot("chart-heatmap", [{
+          z: z,
+          x: validNumCols,
+          y: validNumCols,
+          type: "heatmap",
+          colorscale: "Viridis",
+          showscale: true
+        }], {
+          margin: { t: 20, b: 60, l: 120, r: 20 },
+          paper_bgcolor: "#fdfbf7"
+        }, { responsive: true, displayModeBar: false });
+      }
+    }
+
+    function calculatePearson(col1, col2) {
+      const pairs = currentData
+        .map(r => [Number(r[col1]), Number(r[col2])])
+        .filter(([x, y]) => !isNaN(x) && !isNaN(y));
+      if (pairs.length < 2) return 0;
+      const n = pairs.length;
+      const mx = pairs.reduce((s, p) => s + p[0], 0) / n;
+      const my = pairs.reduce((s, p) => s + p[1], 0) / n;
+      let num = 0, d1 = 0, d2 = 0;
+      pairs.forEach(([x, y]) => {
+        num += (x - mx) * (y - my);
+        d1 += Math.pow(x - mx, 2);
+        d2 += Math.pow(y - my, 2);
+      });
+      const den = Math.sqrt(d1 * d2);
+      return den === 0 ? 0 : Number((num / den).toFixed(2));
+    }
+
+    // Anomaly Detection (Tukey IQR)
+    function inspectAnomalies() {
+      if (!currentData || currentData.length === 0) return;
+      const col = document.getElementById("anomaly-col-select").value || numericalCols[0];
+      if (!col) return;
+
+      const nums = currentData.map(r => Number(r[col])).filter(v => !isNaN(v)).sort((a, b) => a - b);
+      if (nums.length < 4) return;
+
+      const q1 = nums[Math.floor(nums.length * 0.25)];
+      const q3 = nums[Math.floor(nums.length * 0.75)];
+      const iqr = q3 - q1;
+      const lower = Number((q1 - 1.5 * iqr).toFixed(2));
+      const upper = Number((q3 + 1.5 * iqr).toFixed(2));
+
+      const outliers = currentData.filter(r => {
+        const v = Number(r[col]);
+        return !isNaN(v) && (v < lower || v > upper);
+      });
+
+      document.getElementById("anom-count").innerText = outliers.length;
+      document.getElementById("anom-pct").innerText = ((outliers.length / currentData.length) * 100).toFixed(1) + "% of records";
+      document.getElementById("anom-lower").innerText = lower;
+      document.getElementById("anom-upper").innerText = upper;
+
+      // Plot
+      const yVals = currentData.map(r => Number(r[col])).filter(v => !isNaN(v));
+      Plotly.newPlot("chart-anomaly", [{
+        y: yVals,
+        type: "box",
+        boxpoints: "outliers",
+        marker: { color: "#991b1b" },
+        name: col
+      }], {
+        title: { text: "Tukey Outlier Boxplot for " + col },
+        margin: { t: 40, b: 30, l: 50, r: 20 },
+        paper_bgcolor: "#fdfbf7",
+        plot_bgcolor: "#fdfbf7"
+      }, { responsive: true, displayModeBar: false });
+
+      // Outlier Records Table
+      const cols = Object.keys(currentData[0]);
+      document.getElementById("anomaly-table-head").innerHTML = "<tr>" + cols.slice(0, 7).map(c => `<th>${c}</th>`).join("") + "</tr>";
+      const tbody = document.getElementById("anomaly-table-body");
+      tbody.innerHTML = "";
+      outliers.slice(0, 10).forEach(row => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = cols.slice(0, 7).map(c => {
+          const isOut = c === col;
+          return `<td class="${isOut ? 'badge-outlier' : ''}">${row[c]}</td>`;
+        }).join("");
+        tbody.appendChild(tr);
+      });
+    }
+
+    // Hypothesis Testing
+    function updateTtestGroups() {
+      const cat = document.getElementById("ttest-cat").value;
+      if (!cat || !currentData) return;
+      const groups = [...new Set(currentData.map(r => r[cat]).filter(Boolean))];
+      populateDropdown("ttest-grp-a", groups, 0);
+      populateDropdown("ttest-grp-b", groups, 1);
+    }
+
+    function runTtest() {
+      const numCol = document.getElementById("ttest-num").value;
+      const catCol = document.getElementById("ttest-cat").value;
+      const grpA = document.getElementById("ttest-grp-a").value;
+      const grpB = document.getElementById("ttest-grp-b").value;
+
+      const valsA = currentData.filter(r => String(r[catCol]) === String(grpA)).map(r => Number(r[numCol])).filter(v => !isNaN(v));
+      const valsB = currentData.filter(r => String(r[catCol]) === String(grpB)).map(r => Number(r[numCol])).filter(v => !isNaN(v));
+
+      if (valsA.length < 2 || valsB.length < 2) {
+        document.getElementById("ttest-result").innerHTML = "<div style='color:red;'>Insufficient samples in selected groups.</div>";
+        return;
+      }
+
+      const meanA = valsA.reduce((a, b) => a + b, 0) / valsA.length;
+      const meanB = valsB.reduce((a, b) => a + b, 0) / valsB.length;
+      const varA = valsA.reduce((a, b) => a + Math.pow(b - meanA, 2), 0) / (valsA.length - 1);
+      const varB = valsB.reduce((a, b) => a + Math.pow(b - meanB, 2), 0) / (valsB.length - 1);
+
+      const se = Math.sqrt((varA / valsA.length) + (varB / valsB.length));
+      const t = (meanA - meanB) / (se || 1);
+      const isSig = Math.abs(t) > 1.96;
+
+      document.getElementById("ttest-result").innerHTML = `
+        <div style="background:#fff; padding:10px; border-radius:6px; border:1px solid var(--border);">
+          <strong>Welch's t-statistic:</strong> ${t.toFixed(3)}<br>
+          <strong>${grpA} Mean:</strong> ${meanA.toFixed(2)} (n=${valsA.length})<br>
+          <strong>${grpB} Mean:</strong> ${meanB.toFixed(2)} (n=${valsB.length})<br>
+          <strong>Conclusion:</strong> <span class="badge ${isSig ? 'badge-clean' : ''}">${isSig ? "Statistically Significant Difference (p < 0.05)" : "Fail to reject null (No significant difference)"}</span>
+        </div>
+      `;
+    }
+
+    function runAnova() {
+      const numCol = document.getElementById("anova-num").value;
+      const catCol = document.getElementById("anova-cat").value;
+
+      const groups = {};
+      currentData.forEach(r => {
+        const cat = r[catCol];
+        const val = Number(r[numCol]);
+        if (cat && !isNaN(val)) {
+          if (!groups[cat]) groups[cat] = [];
+          groups[cat].push(val);
+        }
+      });
+
+      const validGroups = Object.values(groups).filter(g => g.length > 1);
+      if (validGroups.length < 2) {
+        document.getElementById("anova-result").innerHTML = "<div style='color:red;'>Need at least 2 categories with data.</div>";
+        return;
+      }
+
+      let grandTotal = 0, grandN = 0;
+      validGroups.forEach(g => {
+        grandTotal += g.reduce((a, b) => a + b, 0);
+        grandN += g.length;
+      });
+      const grandMean = grandTotal / grandN;
+
+      let ssBetween = 0, ssWithin = 0;
+      validGroups.forEach(g => {
+        const m = g.reduce((a, b) => a + b, 0) / g.length;
+        ssBetween += g.length * Math.pow(m - grandMean, 2);
+        ssWithin += g.reduce((s, v) => s + Math.pow(v - m, 2), 0);
+      });
+
+      const dfBetween = validGroups.length - 1;
+      const dfWithin = grandN - validGroups.length;
+      const msBetween = ssBetween / dfBetween;
+      const msWithin = ssWithin / (dfWithin || 1);
+      const f = msBetween / (msWithin || 1);
+
+      document.getElementById("anova-result").innerHTML = `
+        <div style="background:#fff; padding:10px; border-radius:6px; border:1px solid var(--border);">
+          <strong>F-statistic:</strong> ${f.toFixed(3)}<br>
+          <strong>Between-group df:</strong> ${dfBetween} | <strong>Within-group df:</strong> ${dfWithin}<br>
+          <strong>Groups evaluated:</strong> ${validGroups.length}<br>
+          <strong>Result:</strong> <span class="badge ${f > 2.5 ? 'badge-clean' : ''}">${f > 2.5 ? "Significant variance detected between categories" : "No significant group differences detected"}</span>
+        </div>
+      `;
+    }
+
+    // Gemini AI Chat
+    async function sendChatMessage() {
+      const input = document.getElementById("chat-input");
+      const msg = input.value.trim();
+      if (!msg) return;
+
+      appendChat(msg, "user");
+      input.value = "";
+
+      const box = document.getElementById("chat-messages");
+      const loadingDiv = document.createElement("div");
+      loadingDiv.className = "chat-msg chat-assistant";
+      loadingDiv.innerText = "Analyzing dataset with Gemini...";
+      box.appendChild(loadingDiv);
+      box.scrollTop = box.scrollHeight;
+
+      try {
+        const resp = await fetch("/api/gemini/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            query: msg,
+            schemaContext: {
+              datasetName: currentName || "Active Dataset",
+              rows: currentData.length,
+              columns: Object.keys(currentData[0] || {}),
+              numericalColumns: numericalCols,
+              categoricalColumns: categoricalCols
+            },
+            history: []
+          })
+        });
+
+        const data = await resp.json();
+        loadingDiv.remove();
+        appendChat(data.explanation || data.answer || "Analyzed your query.", "assistant");
+      } catch (err) {
+        loadingDiv.innerText = "Error contacting Gemini API: " + err.message;
+      }
+    }
+
+    function appendChat(text, sender) {
+      const box = document.getElementById("chat-messages");
+      const div = document.createElement("div");
+      div.className = "chat-msg chat-" + sender;
+      div.innerText = text;
+      box.appendChild(div);
+      box.scrollTop = box.scrollHeight;
+    }
+
+    // Auto-load sample sales on startup
+    window.addEventListener("DOMContentLoaded", () => {
+      loadSample("/sample_sales_data.csv", "Retail Sales Performance");
+    });
+  </script>
+</body>
+</html>

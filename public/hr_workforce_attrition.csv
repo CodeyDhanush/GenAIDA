@@ -1,0 +1,131 @@
+Employee_ID,Department,Job_Role,Salary_USD,Age,Experience_Years,Performance_Score,Overtime,Work_Life_Balance,Commute_Distance_KM,Job_Satisfaction_Score,Left_Company
+EMP-0001,Engineering,"Data Engineer",134743,36,7,3,No,Poor,20,6,No
+EMP-0002,Engineering,"Backend Engineer",131603,36,8,3,Yes,Poor,21,3,No
+EMP-0003,Operations,"Operations Lead",105686,24,1,2,Yes,Fair,33,3,Yes
+EMP-0004,Sales,"Sales Representative",86927,25,1,3,Yes,Excellent,7,6,No
+EMP-0005,Finance,"Accountant",80617,27,1,4,No,Poor,2,2,No
+EMP-0006,Marketing,"Content Strategist",89537,33,4,2,No,Fair,14,7,No
+EMP-0007,Sales,"BDR",123633,33,8,5,No,Poor,14,6,No
+EMP-0008,Operations,"Operations Lead",138641,36,11,4,Yes,Fair,2,5,Yes
+EMP-0009,Finance,"Financial Analyst",131148,33,10,2,No,Excellent,51,7,No
+EMP-0010,Finance,"Finance Director",146121,27,2,2,No,Excellent,25,7,No
+EMP-0011,Sales,"BDR",135213,36,9,3,No,Fair,14,7,Yes
+EMP-0012,Sales,"Sales Director",144456,35,8,4,Yes,Excellent,1,4,No
+EMP-0013,Finance,"Financial Analyst",114279,32,4,4,No,Excellent,21,7,Yes
+EMP-0014,Operations,"Operations Lead",139849,30,8,3,Yes,Fair,15,6,Yes
+EMP-0015,Operations,"Logistics Coordinator",110618,38,9,3,No,Poor,4,6,No
+EMP-0016,Operations,"Logistics Coordinator",77611,29,6,3,No,Fair,8,6,No
+EMP-0017,Finance,"Accountant",83689,30,1,4,No,Fair,1,7,No
+EMP-0018,Sales,"Account Executive",122912,38,10,3,No,Excellent,8,7,No
+EMP-0019,Finance,"Financial Analyst",101067,25,2,2,No,Poor,21,4,Yes
+EMP-0020,Sales,"BDR",112667,32,6,2,No,Poor,7,4,Yes
+EMP-0021,Operations,"Support Manager",147897,33,9,3,Yes,Excellent,11,7,Yes
+EMP-0022,Engineering,"Data Engineer",136203,28,6,3,No,Excellent,25,8,No
+EMP-0023,Operations,"Support Manager",146237,33,9,3,No,Fair,23,8,No
+EMP-0024,Engineering,"Data Engineer",101052,24,1,3,No,Fair,15,6,No
+EMP-0025,Sales,"Sales Director",122821,25,1,3,No,Poor,20,5,No
+EMP-0026,Marketing,"Content Strategist",68310,30,1,2,No,Good,10,7,No
+EMP-0027,Engineering,"Engineering Manager",158573,30,3,2,No,Excellent,13,7,No
+EMP-0028,Marketing,"Content Strategist",94027,28,6,3,Yes,Poor,27,4,Yes
+EMP-0029,Sales,"BDR",107635,31,6,2,No,Good,2,7,No
+EMP-0030,Finance,"Financial Analyst",118596,37,9,1,No,Good,10,7,Yes
+EMP-0031,Product,"UI/UX Designer",116309,28,3,3,No,Excellent,28,6,No
+EMP-0032,Engineering,"Frontend Engineer",115041,30,2,3,Yes,Fair,25,4,Yes
+EMP-0033,Marketing,"Content Strategist",59658,25,1,2,No,Excellent,9,8,No
+EMP-0034,Marketing,"Growth Marketer",67904,24,2,4,No,Poor,32,1,Yes
+EMP-0035,Product,"Product Analyst",106082,31,5,1,No,Excellent,5,7,No
+EMP-0036,Product,"Product Analyst",96878,24,1,4,Yes,Excellent,1,6,No
+EMP-0037,Engineering,"Backend Engineer",120150,33,4,3,No,Good,14,8,No
+EMP-0038,Operations,"Operations Lead",111538,32,5,4,No,Fair,16,8,No
+EMP-0039,Engineering,"Engineering Manager",128595,29,1,2,Yes,Excellent,7,4,Yes
+EMP-0040,Finance,"Financial Analyst",126265,33,10,3,No,Fair,9,7,No
+EMP-0041,Sales,"Account Executive",86668,32,4,4,Yes,Excellent,21,5,No
+EMP-0042,Operations,"Logistics Coordinator",108976,32,9,3,No,Excellent,8,4,Yes
+EMP-0043,Operations,"Support Manager",156263,36,13,3,No,Fair,19,7,Yes
+EMP-0044,Engineering,"Data Engineer",98146,29,1,2,No,Fair,27,7,No
+EMP-0045,Sales,"Sales Representative",170048,42,16,4,No,Fair,22,8,No
+EMP-0046,Product,"Product Manager",165486,32,7,3,Yes,Good,16,4,No
+EMP-0047,Operations,"Support Manager",130274,32,9,4,No,Good,24,8,No
+EMP-0048,Finance,"Finance Director",175779,35,12,3,Yes,Good,2,5,Yes
+EMP-0049,Operations,"Operations Lead",91438,29,1,3,No,Poor,28,6,No
+EMP-0050,Sales,"Sales Director",143669,27,4,4,No,Excellent,18,7,No
+EMP-0051,Operations,"Operations Lead",102770,24,1,3,No,Poor,25,7,Yes
+EMP-0052,Engineering,"Frontend Engineer",107002,27,1,3,No,Poor,18,4,Yes
+EMP-0053,Operations,"Operations Lead",104397,26,2,2,No,Fair,7,8,No
+EMP-0054,Operations,"Logistics Coordinator",72953,31,3,2,Yes,Good,31,5,No
+EMP-0055,Marketing,"Growth Marketer",114707,36,10,4,No,Good,21,8,No
+EMP-0056,Sales,"BDR",113514,29,7,1,Yes,Poor,22,4,Yes
+EMP-0057,Engineering,"Backend Engineer",106207,28,2,2,No,Fair,17,6,No
+EMP-0058,Sales,"Account Executive",104791,34,6,3,Yes,Good,30,7,Yes
+EMP-0059,Sales,"Sales Director",140128,35,8,3,No,Poor,27,3,No
+EMP-0060,Operations,"Support Manager",134034,33,6,3,No,Excellent,12,6,Yes
+EMP-0061,Operations,"Operations Lead",109234,25,3,2,No,Excellent,8,7,No
+EMP-0062,Engineering,"Frontend Engineer",128223,31,3,3,No,Excellent,17,8,Yes
+EMP-0063,Finance,"Accountant",111294,27,5,2,No,Excellent,4,7,No
+EMP-0064,Finance,"Finance Director",142232,27,5,4,No,Fair,11,6,No
+EMP-0065,Product,"UI/UX Designer",93381,24,1,3,No,Excellent,11,10,No
+EMP-0066,Finance,"Accountant",95970,30,1,4,No,Poor,19,3,Yes
+EMP-0067,Sales,"Account Executive",125611,36,9,5,No,Good,2,8,No
+EMP-0068,Sales,"Sales Representative",98118,30,4,4,No,Poor,15,5,No
+EMP-0069,Product,"Product Analyst",140754,33,7,4,No,Poor,6,5,No
+EMP-0070,Marketing,"Content Strategist",83236,34,7,4,Yes,Poor,31,2,Yes
+EMP-0071,Operations,"Operations Lead",133880,29,5,1,No,Good,7,8,No
+EMP-0072,Product,"UI/UX Designer",117480,28,6,3,Yes,Fair,1,4,Yes
+EMP-0073,Product,"UI/UX Designer",117518,36,7,3,No,Good,5,6,No
+EMP-0074,Product,"Product Analyst",153808,38,13,1,Yes,Fair,14,6,Yes
+EMP-0075,Marketing,"Content Strategist",68202,27,2,2,No,Excellent,19,7,No
+EMP-0076,Engineering,"Frontend Engineer",147357,31,9,3,No,Poor,2,4,Yes
+EMP-0077,Marketing,"Growth Marketer",69239,26,1,3,No,Fair,27,6,No
+EMP-0078,Finance,"Finance Director",144034,26,4,3,No,Poor,21,2,No
+EMP-0079,Operations,"Support Manager",172304,42,17,3,No,Poor,8,5,Yes
+EMP-0080,Sales,"Sales Representative",138702,39,14,3,No,Fair,21,9,No
+EMP-0081,Sales,"Account Executive",107556,30,7,3,No,Good,1,5,Yes
+EMP-0082,Sales,"BDR",113400,34,8,5,Yes,Good,34,4,Yes
+EMP-0083,Sales,"Account Executive",77780,30,2,3,No,Fair,7,7,No
+EMP-0084,Engineering,"Frontend Engineer",125377,32,4,5,No,Fair,23,8,No
+EMP-0085,Engineering,"Backend Engineer",122837,30,6,5,No,Good,21,8,No
+EMP-0086,Engineering,"Frontend Engineer",122932,25,3,3,No,Excellent,1,7,No
+EMP-0087,Product,"UI/UX Designer",108129,34,7,2,No,Poor,14,6,Yes
+EMP-0088,Finance,"Accountant",115394,30,8,4,No,Fair,15,7,Yes
+EMP-0089,Finance,"Financial Analyst",103434,30,3,4,No,Good,21,7,No
+EMP-0090,Finance,"Accountant",104402,29,1,4,Yes,Excellent,15,4,No
+EMP-0091,Operations,"Operations Lead",121947,27,4,4,No,Excellent,21,6,No
+EMP-0092,Finance,"Accountant",116496,33,9,3,Yes,Excellent,4,7,No
+EMP-0093,Sales,"Sales Representative",135656,37,11,1,No,Fair,2,7,No
+EMP-0094,Finance,"Financial Analyst",108459,29,3,3,Yes,Fair,23,6,Yes
+EMP-0095,Marketing,"Brand Manager",123257,30,8,2,No,Excellent,12,4,Yes
+EMP-0096,Marketing,"Growth Marketer",69329,26,1,1,Yes,Poor,7,4,Yes
+EMP-0097,Engineering,"DevOps Specialist",105912,25,1,2,No,Excellent,33,6,No
+EMP-0098,Marketing,"Content Strategist",91819,33,6,2,No,Poor,19,5,No
+EMP-0099,Sales,"Sales Representative",124203,33,8,2,No,Excellent,1,9,No
+EMP-0100,Sales,"Account Executive",106154,27,4,2,Yes,Good,10,4,No
+EMP-0101,Sales,"Sales Representative",107588,27,5,1,No,Good,15,5,No
+EMP-0102,Product,"Product Analyst",103792,26,3,2,No,Poor,22,3,No
+EMP-0103,Engineering,"Frontend Engineer",154005,31,9,2,Yes,Fair,25,5,No
+EMP-0104,Operations,"Logistics Coordinator",99523,27,4,4,Yes,Poor,14,4,Yes
+EMP-0105,Operations,"Logistics Coordinator",66953,24,1,3,Yes,Fair,16,4,Yes
+EMP-0106,Product,"UI/UX Designer",112049,26,1,2,No,Excellent,26,6,No
+EMP-0107,Marketing,"Growth Marketer",76183,31,2,3,Yes,Good,23,6,No
+EMP-0108,Marketing,"Growth Marketer",79952,31,5,3,No,Excellent,24,10,No
+EMP-0109,Sales,"Account Executive",121971,35,7,3,Yes,Poor,7,3,Yes
+EMP-0110,Finance,"Accountant",100434,25,3,5,No,Poor,27,6,No
+EMP-0111,Finance,"Accountant",111886,31,3,3,Yes,Excellent,8,6,No
+EMP-0112,Finance,"Accountant",84253,26,1,3,No,Fair,30,10,No
+EMP-0113,Engineering,"Data Engineer",115818,31,3,3,Yes,Excellent,13,6,No
+EMP-0114,Marketing,"Content Strategist",101504,36,8,3,No,Poor,12,5,No
+EMP-0115,Sales,"Sales Representative",92912,29,6,4,No,Good,14,9,No
+EMP-0116,Sales,"BDR",95289,30,4,3,No,Good,12,8,No
+EMP-0117,Product,"Product Analyst",114383,28,1,2,Yes,Poor,16,3,Yes
+EMP-0118,Marketing,"Content Strategist",78501,31,5,4,No,Excellent,4,7,No
+EMP-0119,Product,"UI/UX Designer",120395,30,5,3,Yes,Good,13,4,Yes
+EMP-0120,Operations,"Support Manager",101739,31,2,3,No,Excellent,1,7,No
+EMP-0121,Product,"Product Manager",143735,28,1,3,No,Poor,24,7,No
+EMP-0122,Engineering,"Backend Engineer",142735,31,5,2,No,Fair,19,7,No
+EMP-0123,Engineering,"DevOps Specialist",158899,39,11,4,No,Fair,44,4,No
+EMP-0124,Sales,"Sales Director",145809,35,7,3,No,Excellent,10,7,Yes
+EMP-0125,Operations,"Support Manager",133947,33,10,4,Yes,Excellent,8,4,Yes
+EMP-0126,Product,"Product Manager",176265,34,6,3,No,Poor,21,5,No
+EMP-0127,Operations,"Logistics Coordinator",105492,33,8,4,No,Excellent,4,7,Yes
+EMP-0128,Sales,"Account Executive",124480,39,10,3,Yes,Excellent,22,6,No
+EMP-0129,Finance,"Accountant",121049,36,7,4,No,Fair,9,7,No
+EMP-0130,Engineering,"Engineering Manager",187279,34,9,2,No,Excellent,29,7,No
