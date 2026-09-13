@@ -42,6 +42,7 @@ const COUNTRY_CODES = [
 
 export const AuthPage: React.FC<AuthPageProps> = ({
   onSuccess,
+  onContinueAsGuest,
   initialMode = "signup",
   onClose,
 }) => {
@@ -108,6 +109,16 @@ export const AuthPage: React.FC<AuthPageProps> = ({
 
   const fullPhone = `${countryCode} ${phoneNumber.trim()}`;
 
+  const formatApiErrorMessage = (parsed: { status: number; data?: any; error?: string }, fallback: string) => {
+    if (parsed.status === 405) {
+      return "The backend API returned 405 (Method Not Allowed). If hosting statically on Vercel without serverless functions, click 'Continue as Guest' below to access all data analytics tools immediately!";
+    }
+    if (parsed.status === 404) {
+      return "Backend API endpoint not found (404). Click 'Continue as Guest' below to explore all features.";
+    }
+    return parsed.data?.error || parsed.error || fallback;
+  };
+
   // 1. Send OTP to Gmail
   const handleSendEmailOtp = async () => {
     if (!email || !email.includes("@")) {
@@ -124,7 +135,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({
       });
       const parsed = await safeParseJson(res);
       if (!parsed.ok) {
-        throw new Error(parsed.data?.error || parsed.error || "Failed to send Gmail OTP");
+        throw new Error(formatApiErrorMessage(parsed, "Failed to send Gmail OTP"));
       }
       setEmailOtpSent(true);
       setEmailTimer(30);
@@ -157,7 +168,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({
       });
       const parsed = await safeParseJson(res);
       if (!parsed.ok || !parsed.data?.verified) {
-        throw new Error(parsed.data?.error || parsed.error || "Invalid OTP code");
+        throw new Error(formatApiErrorMessage(parsed, "Invalid OTP code"));
       }
       setEmailVerified(true);
       setSuccessMessage("Gmail address verified successfully!");
@@ -184,7 +195,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({
       });
       const parsed = await safeParseJson(res);
       if (!parsed.ok) {
-        throw new Error(parsed.data?.error || parsed.error || "Failed to send Phone OTP");
+        throw new Error(formatApiErrorMessage(parsed, "Failed to send Phone OTP"));
       }
       setPhoneOtpSent(true);
       setPhoneTimer(30);
@@ -217,7 +228,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({
       });
       const parsed = await safeParseJson(res);
       if (!parsed.ok || !parsed.data?.verified) {
-        throw new Error(parsed.data?.error || parsed.error || "Invalid OTP code");
+        throw new Error(formatApiErrorMessage(parsed, "Invalid OTP code"));
       }
       setPhoneVerified(true);
       setSuccessMessage("Phone number verified successfully!");
@@ -283,7 +294,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({
 
       const parsed = await safeParseJson(res);
       if (!parsed.ok) {
-        throw new Error(parsed.data?.error || parsed.error || "Failed to create account.");
+        throw new Error(formatApiErrorMessage(parsed, "Failed to create account."));
       }
 
       setSuccessMessage("Account created and securely stored in MySQL/Cloud SQL database!");
@@ -337,7 +348,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({
         if (parsed.data?.accountNotFound || res.status === 403) {
           setAccountNotFoundError(true);
         }
-        throw new Error(parsed.data?.error || parsed.error || "Login failed.");
+        throw new Error(formatApiErrorMessage(parsed, "Login failed."));
       }
 
       setSuccessMessage("Authentication verified. Loading workspace...");
@@ -371,7 +382,7 @@ export const AuthPage: React.FC<AuthPageProps> = ({
       });
       const parsed = await safeParseJson(res);
       if (!parsed.ok) {
-        throw new Error(parsed.data?.error || parsed.error || "Failed to send OTP.");
+        throw new Error(formatApiErrorMessage(parsed, "Failed to send OTP."));
       }
       setLoginOtpSent(true);
       setLoginDevOtp(parsed.data?.otpCode || null);
@@ -464,10 +475,22 @@ export const AuthPage: React.FC<AuthPageProps> = ({
                         setPhoneNumber(loginIdentifier);
                       }
                     }}
-                    className="mt-1.5 inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#b91c1c] text-white text-[11px] font-semibold hover:bg-[#991b1b] transition-colors"
+                    className="mt-1.5 inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-[#b91c1c] text-white text-[11px] font-semibold hover:bg-[#991b1b] transition-colors cursor-pointer"
                   >
                     Create Account Now <ArrowRight className="h-3 w-3" />
                   </button>
+                )}
+                {onContinueAsGuest && (errorMessage.includes("405") || errorMessage.includes("Continue as Guest")) && (
+                  <div>
+                    <button
+                      type="button"
+                      onClick={onContinueAsGuest}
+                      className="mt-1.5 inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#24211e] text-[#f7f4ef] text-xs font-semibold hover:bg-[#38332e] transition-colors cursor-pointer shadow-xs"
+                    >
+                      <Sparkles className="h-3.5 w-3.5 text-[#fbbf24]" />
+                      Continue as Guest & Open Workspace
+                    </button>
+                  </div>
                 )}
               </div>
             </div>
@@ -945,6 +968,20 @@ export const AuthPage: React.FC<AuthPageProps> = ({
                 </p>
               </div>
             </form>
+          )}
+
+          {/* Quick guest explore option */}
+          {onContinueAsGuest && (
+            <div className="pt-2 text-center border-t border-[#ebd7c1]">
+              <button
+                type="button"
+                onClick={onContinueAsGuest}
+                className="text-xs font-medium text-[#736b5e] hover:text-[#1c1917] transition-colors inline-flex items-center gap-1.5 py-1 px-3 rounded-lg hover:bg-[#ede6d8] cursor-pointer"
+              >
+                <Sparkles className="h-3.5 w-3.5 text-[#b45309]" />
+                <span>Or explore the workspace instantly in guest mode</span>
+              </button>
+            </div>
           )}
 
           {/* Database & Security Assurance Footer */}

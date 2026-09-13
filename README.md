@@ -187,6 +187,29 @@ Access the application at `http://localhost:8501`.
 
 ---
 
+## ⚡ Hosting on GitHub & Vercel (Fixing 405 Method Not Allowed)
+
+### Why did Vercel return `405 Method Not Allowed`?
+Vercel is primarily a static and serverless platform. When an application has both a frontend (Vite) and an API (`/api/auth/*`, `/api/gemini/*`):
+1. If all routes are routed to `/index.html`, any `POST` request (like OTP verification, login, or Gemini requests) reaches `dist/index.html`.
+2. Vercel's static asset CDN does not allow HTTP `POST` to static `.html` files, returning **`405 Method Not Allowed`** with an empty body.
+
+### How this repository is configured for Vercel:
+1. **`vercel.json`**:
+   - Routes `/api/(.*)` directly to Vercel Serverless Functions (`/api`).
+   - Routes only client routes (`/((?!api/).*)`) to `/index.html`.
+2. **`api/index.ts`**:
+   - Implements the complete Express serverless handler for Vercel.
+   - Includes fallback session and OTP handling if an external database is not connected, ensuring smooth testing on Vercel without 500/405 errors.
+3. **Vercel Environment Variables**:
+   In your Vercel Project Dashboard (`Settings` -> `Environment Variables`), add:
+   - `GEMINI_API_KEY`: Your Gemini API key from [Google AI Studio](https://aistudio.google.com/)
+   - *(Optional)* `SQL_HOST`, `SQL_USER`, `SQL_PASSWORD`, `SQL_DB_NAME`: For persistent user accounts via PostgreSQL/Cloud SQL.
+4. **Guest Mode Fallback**:
+   - You can also click **"Explore Workspace in Guest Mode"** on the login screen to access all 8 data analytics modules immediately.
+
+---
+
 ## 🧪 Example Questions to Ask
 - *"What are the top 10 products by revenue?"*
 - *"What is the average sales by region?"*
