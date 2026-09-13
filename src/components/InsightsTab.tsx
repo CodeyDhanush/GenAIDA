@@ -141,8 +141,17 @@ export const InsightsTab: React.FC<InsightsTabProps> = ({
       });
 
       if (resp.ok) {
-        const json = await resp.json();
-        onUpdateInsights(json);
+        const rawText = await resp.text();
+        if (rawText && rawText.trim().length > 0) {
+          try {
+            const json = JSON.parse(rawText);
+            onUpdateInsights(json);
+          } catch {
+            onUpdateInsights(generateLocalFallbackInsights());
+          }
+        } else {
+          onUpdateInsights(generateLocalFallbackInsights());
+        }
       } else {
         // Fallback to robust deterministic statistical synthesis
         onUpdateInsights(generateLocalFallbackInsights());

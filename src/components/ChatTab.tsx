@@ -92,9 +92,16 @@ export const ChatTab: React.FC<ChatTabProps> = ({
         });
 
         if (resp.ok) {
-          const resultJson = await resp.json();
-          explanation = resultJson.explanation || "";
-          followups = resultJson.followups || [];
+          const rawText = await resp.text();
+          if (rawText && rawText.trim().length > 0) {
+            try {
+              const resultJson = JSON.parse(rawText);
+              explanation = resultJson.explanation || "";
+              followups = resultJson.followups || [];
+            } catch {
+              // fallback
+            }
+          }
         }
       } catch (apiErr) {
         console.warn("API explanation fallback to local format:", apiErr);

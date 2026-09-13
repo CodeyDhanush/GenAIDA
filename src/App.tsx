@@ -49,8 +49,14 @@ export function App() {
   // Check backend health
   useEffect(() => {
     fetch("/api/health")
-      .then((res) => res.json())
-      .then((d) => setGeminiConnected(d.geminiConfigured))
+      .then(async (res) => {
+        if (!res.ok) return null;
+        const text = await res.text();
+        return text ? JSON.parse(text) : null;
+      })
+      .then((d) => {
+        if (d) setGeminiConnected(!!d.geminiConfigured);
+      })
       .catch(() => setGeminiConnected(false));
   }, []);
 

@@ -530,6 +530,11 @@ All observations MUST be realistic and directly grounded in the provided metrics
     }
   });
 
+  // Catch-all for unmatched API routes to ensure they always return JSON, never HTML
+  app.all("/api/*", (req, res) => {
+    res.status(404).json({ error: `API route not found: ${req.method} ${req.originalUrl}` });
+  });
+
   // Vite middleware setup
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { UserProfile } from "../types";
+import { safeParseJson } from "../utils/apiUtils";
 import {
   Mail,
   Phone,
@@ -121,13 +122,13 @@ export const AuthPage: React.FC<AuthPageProps> = ({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ target: email.trim(), type: "email" }),
       });
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data.error || "Failed to send Gmail OTP");
+      const parsed = await safeParseJson(res);
+      if (!parsed.ok) {
+        throw new Error(parsed.data?.error || parsed.error || "Failed to send Gmail OTP");
       }
       setEmailOtpSent(true);
       setEmailTimer(30);
-      setLastEmailDevOtp(data.otpCode || null);
+      setLastEmailDevOtp(parsed.data.otpCode || null);
       setSuccessMessage(`OTP sent to ${email}. Check your inbox (or use the preview code below).`);
     } catch (err: any) {
       setErrorMessage(err.message);
@@ -154,9 +155,9 @@ export const AuthPage: React.FC<AuthPageProps> = ({
           code: emailOtpCode.trim(),
         }),
       });
-      const data = await res.json();
-      if (!res.ok || !data.verified) {
-        throw new Error(data.error || "Invalid OTP code");
+      const parsed = await safeParseJson(res);
+      if (!parsed.ok || !parsed.data?.verified) {
+        throw new Error(parsed.data?.error || parsed.error || "Invalid OTP code");
       }
       setEmailVerified(true);
       setSuccessMessage("Gmail address verified successfully!");
@@ -181,13 +182,13 @@ export const AuthPage: React.FC<AuthPageProps> = ({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ target: fullPhone, type: "phone" }),
       });
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data.error || "Failed to send Phone OTP");
+      const parsed = await safeParseJson(res);
+      if (!parsed.ok) {
+        throw new Error(parsed.data?.error || parsed.error || "Failed to send Phone OTP");
       }
       setPhoneOtpSent(true);
       setPhoneTimer(30);
-      setLastPhoneDevOtp(data.otpCode || null);
+      setLastPhoneDevOtp(parsed.data.otpCode || null);
       setSuccessMessage(`OTP sent to ${fullPhone}. Use the code below to verify.`);
     } catch (err: any) {
       setErrorMessage(err.message);
@@ -214,9 +215,9 @@ export const AuthPage: React.FC<AuthPageProps> = ({
           code: phoneOtpCode.trim(),
         }),
       });
-      const data = await res.json();
-      if (!res.ok || !data.verified) {
-        throw new Error(data.error || "Invalid OTP code");
+      const parsed = await safeParseJson(res);
+      if (!parsed.ok || !parsed.data?.verified) {
+        throw new Error(parsed.data?.error || parsed.error || "Invalid OTP code");
       }
       setPhoneVerified(true);
       setSuccessMessage("Phone number verified successfully!");
@@ -280,14 +281,14 @@ export const AuthPage: React.FC<AuthPageProps> = ({
         }),
       });
 
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data.error || "Failed to create account.");
+      const parsed = await safeParseJson(res);
+      if (!parsed.ok) {
+        throw new Error(parsed.data?.error || parsed.error || "Failed to create account.");
       }
 
       setSuccessMessage("Account created and securely stored in MySQL/Cloud SQL database!");
       setTimeout(() => {
-        onSuccess(data.user);
+        onSuccess(parsed.data.user);
       }, 700);
     } catch (err: any) {
       setErrorMessage(err.message);
@@ -331,17 +332,17 @@ export const AuthPage: React.FC<AuthPageProps> = ({
         }),
       });
 
-      const data = await res.json();
-      if (!res.ok) {
-        if (data.accountNotFound || res.status === 403) {
+      const parsed = await safeParseJson(res);
+      if (!parsed.ok) {
+        if (parsed.data?.accountNotFound || res.status === 403) {
           setAccountNotFoundError(true);
         }
-        throw new Error(data.error || "Login failed.");
+        throw new Error(parsed.data?.error || parsed.error || "Login failed.");
       }
 
       setSuccessMessage("Authentication verified. Loading workspace...");
       setTimeout(() => {
-        onSuccess(data.user);
+        onSuccess(parsed.data.user);
       }, 600);
     } catch (err: any) {
       setErrorMessage(err.message);
@@ -368,12 +369,12 @@ export const AuthPage: React.FC<AuthPageProps> = ({
           type: isEmail ? "email" : "phone",
         }),
       });
-      const data = await res.json();
-      if (!res.ok) {
-        throw new Error(data.error || "Failed to send OTP.");
+      const parsed = await safeParseJson(res);
+      if (!parsed.ok) {
+        throw new Error(parsed.data?.error || parsed.error || "Failed to send OTP.");
       }
       setLoginOtpSent(true);
-      setLoginDevOtp(data.otpCode || null);
+      setLoginDevOtp(parsed.data?.otpCode || null);
       setSuccessMessage(`Verification code sent to ${loginIdentifier}.`);
     } catch (err: any) {
       setErrorMessage(err.message);

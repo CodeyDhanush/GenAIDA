@@ -101,8 +101,15 @@ export const PredictiveTab: React.FC<PredictiveTabProps> = ({ data, profile }) =
         });
 
         if (resp.ok) {
-          const json = await resp.json();
-          setAiExplanation(json.explanation || "");
+          const rawText = await resp.text();
+          if (rawText && rawText.trim().length > 0) {
+            try {
+              const json = JSON.parse(rawText);
+              setAiExplanation(json.explanation || "");
+            } catch {
+              // fallback
+            }
+          }
         }
       } catch {
         // Fallback

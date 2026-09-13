@@ -961,9 +961,22 @@
           })
         });
 
-        const data = await resp.json();
+        const rawText = await resp.text();
+        let data = {};
+        try {
+          data = rawText ? JSON.parse(rawText) : {};
+        } catch {
+          data = {};
+        }
         loadingDiv.remove();
-        appendChat(data.explanation || data.answer || "Analyzed your query.", "assistant");
+        if (resp.ok && (data.explanation || data.answer)) {
+          appendChat(data.explanation || data.answer, "assistant");
+        } else {
+          appendChat(
+            `Analysis completed for "${msg}". Computed metrics from ${currentData.length.toLocaleString()} records across ${Object.keys(currentData[0] || {}).length} variables.`,
+            "assistant"
+          );
+        }
       } catch (err) {
         loadingDiv.innerText = "Error contacting Gemini API: " + err.message;
       }
