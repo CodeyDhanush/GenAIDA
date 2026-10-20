@@ -210,6 +210,49 @@ Vercel is primarily a static and serverless platform. When an application has bo
 
 ---
 
+## ✉️ Real Email & SMS OTP Verification Setup
+
+### Why OTPs don't arrive automatically out-of-the-box
+Sending **real emails** to Gmail inboxes and **real SMS** to mobile phones requires connecting the cloud server (e.g., Vercel) to an email service or telecom carrier gateway. Without credentials, no email or SMS can physically be transmitted over telecommunications networks.
+
+**While credentials are not yet configured:** The app automatically provides a temporary test code with a 1-click paste button and an instant "Guest Mode" option so you and your testers are never blocked!
+
+### How to receive real OTPs in Gmail (Free & takes 60 seconds)
+1. Open [Google App Passwords](https://myaccount.google.com/apppasswords) (sign in if needed).
+2. Enter app name **GenAI Analyst** and click **Create**.
+3. Copy the 16-character password (e.g., `abcd efgh ijkl mnop`).
+4. In your **Vercel Project Dashboard** (`Settings` → `Environment Variables`), add:
+   ```env
+   GMAIL_USER=your_email@gmail.com
+   GMAIL_APP_PASSWORD=abcd efgh ijkl mnop
+   ```
+5. Redeploy your project. Real emails will immediately arrive in user inboxes, and test codes will be hidden automatically!
+
+### Alternative Email Options:
+- **Resend (100 free emails/day)**: Add `RESEND_API_KEY=re_...`
+- **Custom SMTP (SendGrid, Mailgun, AWS SES, Postmark)**:
+  ```env
+  SMTP_HOST=smtp.sendgrid.net
+  SMTP_PORT=587
+  SMTP_USER=apikey
+  SMTP_PASS=your_api_key
+  SMTP_FROM="GenAI Data Analyst" <noreply@yourdomain.com>
+  ```
+
+### How to receive real SMS on phones:
+- **Twilio**:
+  ```env
+  TWILIO_ACCOUNT_SID=ACxxxxxxxxxxxxxxxxxxxxxxxx
+  TWILIO_AUTH_TOKEN=your_auth_token
+  TWILIO_PHONE_NUMBER=+1234567890
+  ```
+- **Fast2SMS (India)**:
+  ```env
+  FAST2SMS_API_KEY=your_key
+  ```
+
+---
+
 ## 🧪 Example Questions to Ask
 - *"What are the top 10 products by revenue?"*
 - *"What is the average sales by region?"*

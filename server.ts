@@ -11,7 +11,9 @@ import {
   storeOtp,
   verifyOtpCode,
   isTargetVerified,
+  enterOrRegisterUserByEmail,
 } from "./src/db/users.ts";
+import { dispatchOtp } from "./src/services/otpNotifier.ts";
 
 dotenv.config();
 
@@ -47,6 +49,50 @@ async function startServer() {
   // AUTHENTICATION & VERIFICATION API ROUTES
   // (Stored in Cloud SQL relational database)
   // ==========================================
+  // Direct Email Access (Enter email and enter website)
+  app.post("/api/auth/enter", async (req, res) => {
+    try {
+      const { email, name } = req.body;
+      if (!email || !email.includes("@")) {
+        return res.status(400).json({ error: "Please enter a valid email address." });
+      }
+
+      const trimmedEmail = email.trim().toLowerCase();
+      let userRecord: any = null;
+      try {
+        userRecord = await enterOrRegisterUserByEmail(trimmedEmail, name);
+      } catch (dbErr) {
+        console.warn("DB user creation warning, continuing with session:", dbErr);
+      }
+
+      const cleanName =
+        userRecord?.name ||
+        name?.trim() ||
+        trimmedEmail
+          .split("@")[0]
+          .replace(/[._-]/g, " ")
+          .replace(/\b\w/g, (c: string) => c.toUpperCase());
+
+      res.json({
+        success: true,
+        message: "Welcome to GenAI Data Analyst!",
+        user: {
+          uid: userRecord?.uid || `usr_${Date.now()}`,
+          id: userRecord?.uid || `usr_${Date.now()}`,
+          name: cleanName,
+          email: trimmedEmail,
+          phone: userRecord?.phone || "",
+          dob: userRecord?.dob || "",
+          organization: userRecord?.organization || "Personal",
+          provider: "email",
+          createdAt: userRecord?.createdAt ? new Date(userRecord.createdAt).toISOString() : new Date().toISOString(),
+        },
+      });
+    } catch (err: any) {
+      console.error("Error in /api/auth/enter:", err);
+      res.status(500).json({ error: err.message || "Failed to sign in." });
+    }
+  });
 
   // 1. Send OTP (Email or Phone)
   app.post("/api/auth/send-otp", async (req, res) => {
@@ -60,14 +106,19 @@ async function startServer() {
       const code = Math.floor(100000 + Math.random() * 900000).toString();
       await storeOtp(target, type, code);
 
-      console.log(`[OTP DISPATCH] Generated OTP for ${type} (${target}): ${code}`);
+      // Dispatch OTP directly to recipient email or phone
+      const dispatchResult = await dispatchOtp({ target, type, code });
 
       res.json({
         success: true,
-        message: `A 6-digit OTP code has been sent to your ${type === "email" ? "Gmail address" : "phone number"}.`,
-        otpCode: code, // Shared in response for preview/demo verification convenience
+        message: dispatchResult.message,
         target,
         type,
+        deliveredToRecipient: dispatchResult.deliveredToRecipient,
+        provider: dispatchResult.provider,
+        // Crucial safety net: If no live email/SMS gateway is configured in environment,
+        // provide the test code so developers/users are never locked out of testing their app!
+        previewCode: !dispatchResult.deliveredToRecipient ? code : undefined,
       });
     } catch (err: any) {
       console.error("Error sending OTP:", err);

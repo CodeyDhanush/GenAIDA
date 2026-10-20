@@ -1,6 +1,7 @@
 import express, { Request, Response } from "express";
 import { GoogleGenAI } from "@google/genai";
 import dotenv from "dotenv";
+import { dispatchOtp } from "../src/services/otpNotifier.ts";
 
 dotenv.config();
 
@@ -54,6 +55,55 @@ app.get("/api/health", (req: Request, res: Response) => {
   });
 });
 
+// Direct Email Access (Enter email and enter website)
+app.post("/api/auth/enter", async (req: Request, res: Response) => {
+  try {
+    const { email, name } = req.body || {};
+    if (!email || !email.includes("@")) {
+      return res.status(400).json({ error: "Please enter a valid email address." });
+    }
+
+    const trimmedEmail = email.trim().toLowerCase();
+    let userRecord: any = null;
+
+    if (hasDatabase) {
+      try {
+        const { enterOrRegisterUserByEmail } = await import("../src/db/users.ts");
+        userRecord = await enterOrRegisterUserByEmail(trimmedEmail, name);
+      } catch (dbErr) {
+        console.warn("DB user creation warning, continuing with session:", dbErr);
+      }
+    }
+
+    const cleanName =
+      userRecord?.name ||
+      name?.trim() ||
+      trimmedEmail
+        .split("@")[0]
+        .replace(/[._-]/g, " ")
+        .replace(/\b\w/g, (c: string) => c.toUpperCase());
+
+    res.json({
+      success: true,
+      message: "Welcome to GenAI Data Analyst!",
+      user: {
+        uid: userRecord?.uid || `usr_${Date.now()}`,
+        id: userRecord?.uid || `usr_${Date.now()}`,
+        name: cleanName,
+        email: trimmedEmail,
+        phone: userRecord?.phone || "",
+        dob: userRecord?.dob || "",
+        organization: userRecord?.organization || "Personal",
+        provider: "email",
+        createdAt: userRecord?.createdAt ? new Date(userRecord.createdAt).toISOString() : new Date().toISOString(),
+      },
+    });
+  } catch (err: any) {
+    console.error("Error in /api/auth/enter:", err);
+    res.status(500).json({ error: err.message || "Failed to sign in." });
+  }
+});
+
 // 2. Send OTP
 app.post("/api/auth/send-otp", async (req: Request, res: Response) => {
   try {
@@ -76,12 +126,18 @@ app.post("/api/auth/send-otp", async (req: Request, res: Response) => {
       memoryOtps.push({ target, type, code, expiresAt: Date.now() + 600000, verified: false });
     }
 
+    // Dispatch OTP directly to email/phone
+    const dispatchResult = await dispatchOtp({ target, type, code });
+
     res.json({
       success: true,
-      message: `A 6-digit OTP code has been sent to your ${type === "email" ? "Gmail address" : "phone number"}.`,
-      otpCode: code,
+      message: dispatchResult.message,
       target,
       type,
+      deliveredToRecipient: dispatchResult.deliveredToRecipient,
+      provider: dispatchResult.provider,
+      // Fallback test code provided ONLY if no external mail/SMS gateway is configured
+      previewCode: !dispatchResult.deliveredToRecipient ? code : undefined,
     });
   } catch (err: any) {
     res.status(500).json({ error: err.message || "Failed to generate verification code." });

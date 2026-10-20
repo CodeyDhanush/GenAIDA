@@ -166,3 +166,40 @@ export async function isTargetVerified(target: string, targetType: "email" | "ph
     return false;
   }
 }
+
+// 8. Direct enter or register by email
+export async function enterOrRegisterUserByEmail(email: string, name?: string) {
+  try {
+    const cleanEmail = email.trim().toLowerCase();
+    const existing = await findUserByEmail(cleanEmail);
+    if (existing) {
+      return existing;
+    }
+    const defaultName =
+      name?.trim() ||
+      cleanEmail
+        .split("@")[0]
+        .replace(/[._-]/g, " ")
+        .replace(/\b\w/g, (c) => c.toUpperCase());
+    const randomSuffix = Math.floor(1000 + Math.random() * 9000);
+    const uid = `usr_${Date.now()}_${Math.random().toString(36).substring(2, 8)}`;
+    const inserted = await db
+      .insert(users)
+      .values({
+        uid,
+        name: defaultName,
+        dob: "Not specified",
+        email: cleanEmail,
+        phone: `+1${Date.now().toString().slice(-8)}${randomSuffix}`,
+        password: "direct_email_access",
+        emailVerified: true,
+        phoneVerified: true,
+        organization: "Personal",
+      })
+      .returning();
+    return inserted[0];
+  } catch (error) {
+    console.error("Error in enterOrRegisterUserByEmail:", error);
+    throw error;
+  }
+}
